@@ -1,0 +1,17 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: rgb(245, 243, 240);
+  overflow-x: hidden;
+}
+ul {
+  padding-inline-start: none;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+
