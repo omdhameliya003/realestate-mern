@@ -1,0 +1,132 @@
+#property-form {
+    max-width: 1100px;
+    border-radius: 8px;
+    margin: 10px auto;
+  }
+  #property-form h3 {
+    font-size: 30px;
+    margin: 10px auto;
+  }
+  #property-form span {
+    color: red;
+  }
+  #property-form form {
+    display: grid;
+    grid-template-columns: auto;
+    /* padding: 0px 20px; */
+  }
+  #property-form form .property-flex {
+    display: grid;
+    grid-template-columns: auto auto; 
+  }
+  #property-form form input,
+  #property-form form textarea {
+    width: 95%;
+    max-width: 100%;
+    border: 1px solid black;
+    /* padding: 5px; */
+  }
+  #property-form form textarea {
+    padding: 15px;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  #property-form form .property-flex input,
+  #property-form form .property-flex select {
+    width: 92.5%;
+    max-width: 100%;
+    padding-left: 10px;
+    outline: none;
+    height: 41px;
+  }
+  #property-form form .property-flex select {
+    height: 41px;
+    width: 93%;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: gray;
+    margin-top: 5px;
+    /* margin-left: 7px; */
+  }
+  
+  #property-form form p {
+    text-align: start;
+    padding-left: 20px;
+    margin-bottom: 5px;
+  }
+  #property-form form .checkbox {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 7px 0px;
+  }
+  #property-form form .checkbox input {
+    width: auto;
+    height: auto;
+    margin-right: 10px;
+  }
+  #property-form form .checkbox p {
+    margin-top: 0px;
+  }
+  #property-form form input[type="file"] {
+    /* text-align: center; */
+    padding-top: 10px;
+  }
+  #property-form form input[type="submit"] {
+    max-width: 100%;
+    width: 100%;
+    margin: 20px auto;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+  }
+
+  @media screen and (max-width: 840px) {
+
+    #property-form form p {
+        padding-left: 15px;
+      }
+  }
+
+  @media screen and (max-width: 768px) {
+
+    #property-form h3 {
+        font-size: 25px;
+      }
+      #property-form form .property-flex {
+        grid-template-columns: auto;
+      }
+      #property-form form .property-flex select {
+        width: 97%;
+      }
+      #property-form form .property-flex input {
+        width: 95%;
+      }
+      #property-form form textarea {
+        width: 92%;
+      }
+      #property-form form p {
+        padding-left: 10px;
+      }
+  }
+
+  @media screen and (max-width: 560px) {
+    #property-form form textarea {
+        font-size: 15px;
+      }
+  }
+
+  
+  @media screen and (max-width: 490px) {
+    #property-form form .property-flex select {
+        width: 100%;
+      }
+  }
+
+  @media screen and (max-width: 450px) {
+    #property-form form .checkbox {
+        grid-template-columns: auto;
+      }
+      #property-form form p {
+        padding-left: 5px;
+      }
+  }
