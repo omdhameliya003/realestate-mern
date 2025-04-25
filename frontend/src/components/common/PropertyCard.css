@@ -1,0 +1,235 @@
+.listing-container,
+.my_listingcontainer {
+  max-width: 100%;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 22px;
+  padding: 0px 20px;
+}
+.listing-container h2,
+.my_listingcontainer h2 {
+  font-size: 28px;
+}
+.listing-main {
+  /* padding: 10px; */
+  max-width: 1100px;
+  margin: 30px auto;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.listing-main a {
+  color: black;
+}
+.listing-flex {
+  max-width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 20px;
+  text-align: start;
+}
+.listing-left {
+  width: 48%;
+  max-width: 100%;
+  font-size: 20px;
+}
+.listing-save-btn button a i {
+  padding-right: 10px;
+}
+.listing-left img,
+.listing-img {
+  max-width: 100%;
+  width: 100%;
+  max-height: 100%;
+  height: 350px;
+  border: 1px solid gray;
+}
+.listing-right {
+  width: 48%;
+  max-width: 100%;
+}
+.listing-left button {
+  width: 150px;
+  height: 40px;
+  margin: 10px;
+  font-size: 22px;
+  border: none;
+  outline: none;
+}
+.listing-user {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.owner-logo {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+}
+.owner-name p {
+  margin: 10px;
+}
+.listing-right {
+  display: flex;
+  padding: 35px 0px;
+}
+.listing-right .post-icon,
+.my_listing_flex i {
+  color: orange;
+  margin-right: 7px;
+}
+.listing-data p,
+.listing-data h3 {
+  margin: 15px 0px;
+  font-size: 20px;
+}
+.listing-data-grid {
+  margin: 10px 0px;
+  padding: 25px;
+  background-color: #eeeeee;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 18px;
+}
+.listing-data-grid p {
+  flex: 1 1 180px;
+  margin: 10px 0px;
+}
+.listing-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+.listing-buttons button,
+.view_more button,
+.add_mylisting_btn {
+  max-width: 250px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: orange;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.listing-buttons button a,
+.view_more button a,.add_mylisting_btn a {
+  color: white;
+}
+
+.view_more,.no_property,.filter_not_found{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.no_property ,.filter_not_found p,.no_request{
+  font-size: 30px;
+  color: red;
+  height: 400px;
+  align-content: center;
+  margin: 0px 10px;
+}
+.filter_not_found p{
+  height: 100px;
+}
+.save-btn.saved{
+  color: red;
+}
+.save-btn{
+    margin: 0px 20px;
+}
+
+
+@media screen and (max-width: 991px) {
+    .listing-data-grid p {
+        flex: 1 1 130px;
+      }
+      .listing-container h2,
+      .my_listingcontainer h2 {
+        font-size: 26px;
+      }
+}
+
+@media screen and (max-width: 900px) {
+
+    .listing-data-grid p {
+        flex: 1 1 120px;
+      }
+}
+
+@media screen and (max-width: 768px) {
+    .listing-flex {
+        flex-direction: column;
+        gap: 0px;
+      }
+    
+      .listing-left,
+      .listing-right {
+        width: 100%;
+        /* max-width: 100%; */
+      }
+      .listing-left img,
+      .listing-img {
+        width: 100%;
+        height: 320px;
+      }
+      .listing-right {
+        padding: 10px 0px;
+        flex-direction: column;
+        border-top: 1px solid gray;
+      }
+      .listing-data-grid {
+        /* width: 100%; */
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 10px;
+        padding: 10px;
+      }
+      .listing-buttons button {
+        max-width: 350px;
+        gap: 50px;
+      }
+
+}
+
+@media screen and (max-width: 560px) {
+
+    .listing-buttons button {
+        font-size: 16px;
+      }
+      
+      .listing-left img,
+      .listing-img {
+        height: 250px;
+      }
+      .listing-container h2 {
+        font-size: 24px;
+      }
+}
+
+@media screen and (max-width: 490px) {
+
+    .listing-data-grid {
+        grid-template-columns: auto auto;
+        gap: 2px;
+      }
+      .listing-data-grid p {
+        margin: 7px;
+      }
+
+      .listing-left button{
+        width: 130px;
+        font-size: 18px;
+          margin: 5px 3px;
+      }
+}
+
+@media screen and (max-width: 370px) {
+    .listing-data-grid {
+        grid-template-columns: auto;
+        gap: 0px;
+      }
+}
