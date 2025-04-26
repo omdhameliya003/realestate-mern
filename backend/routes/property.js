@@ -23,7 +23,7 @@ router.post("/property",authmiddleware,upload.fields([
     {name:"image_01",maxCount:1},
     {name:"image_02",maxCount:1},
     {name:"image_03",maxCount:1},
-    {name:"image_04",maxCount:1},
+    {name:" imagesimage_04",maxCount:1},
     {name:"image_05",maxCount:1},
 ]), async(req,res)=>{
 
@@ -59,13 +59,19 @@ router.post("/property",authmiddleware,upload.fields([
         res.status(500).json("somthing went wrong,server error.") 
     }
   })
-  router.get("/property/:id",async (req,res)=>{
+
+  
+  router.get("/property/:userid",async (req,res)=>{
     try {
-        const properties= await Property.find({user_id:req.params.id})
+        const properties= await Property.find({user_id:req.params.userid}).select("price property_name address city _id property_id images")
         res.status(200).json({success:true,properties:properties})
     } catch (error) {
         res.status(500).json("somthing went wrong,server error.") 
     }
   })
+
+ 
+
+
   
   module.exports=router;
