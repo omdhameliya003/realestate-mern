@@ -11,24 +11,21 @@ function Login() {
   const Navigate = useNavigate();
   const { showAlert } = useAlert();
 
- const getprofile= async()=>{
-
- const token=JSON.parse(localStorage.getItem("token")) || "";
- console.log( "getprofile token:-",token)
-  const res = await fetch("http://localhost:5000/auth/me", {
-    method: "GET",
-    headers: {
-      "content-Type": "application/json",
-      "Authorization": `Bearer ${token}`
-    },
-    body: JSON.stringify(),
-  });
-  const result= await res.json()
-  console.log(result)
-  const user_id=result.user.user_id;
-  localStorage.setItem("user_id",JSON.stringify(user_id))
- }
-  
+  const getprofile= async()=>{
+    const token=JSON.parse(localStorage.getItem("token")) || "";
+     const res = await fetch("http://localhost:5000/auth/me", {
+       method: "GET",
+       headers: {
+         "content-Type": "application/json",
+         "Authorization": `Bearer ${token}`
+       },
+       body: JSON.stringify(),
+     });
+     const result= await res.json()
+     console.log(result)
+     const user_id=result.user._id;
+     localStorage.setItem("user_id",JSON.stringify(user_id))
+    }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,8 +45,8 @@ function Login() {
       }
 
       if (result.success) {
-         getprofile();
-        setEmail("");
+        getprofile();
+            setEmail("");
         setPassword("");
         Navigate("/home");
         showAlert('success', 'Login Successful!');
