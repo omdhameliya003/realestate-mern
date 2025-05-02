@@ -1,8 +1,19 @@
+.my_listingcontainer {
+  max-width: 100%;
+  text-align: center;
+  margin: 0px auto;
+  font-size: 22px;
+  padding: 0px 20px;
+}
+.my_listingcontainer h2 {
+  font-size: 28px;
+}
+
 .my_listing_flex {
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     padding: 15px;
     margin: 20px auto;
     align-items: flex-start;

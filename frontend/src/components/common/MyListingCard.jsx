@@ -4,10 +4,10 @@ import { PiCurrencyInrBold } from "react-icons/pi";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
-const MyListingCard = React.memo(({propertiesdata})=> {
+const MyListingCard = React.memo(({propertiesdata,onDelete,viewProperty})=> {
+
   return (
     <>
-      <div className="my_listing_flex">
         <div className="list_item">
           <div className="my_listing_img">
             <img src={propertiesdata.images[0]} alt=""/>
@@ -32,19 +32,18 @@ const MyListingCard = React.memo(({propertiesdata})=> {
             <div className="my_listing_buttons">
                <div className="my_list_btn_flex">
                  <button className="btnupdate">
-                    <Link to="">update</Link>
+                    update
                  </button>
-                 <button className="btndelete">
-                <Link to="">Delete</Link>
+                 <button className="btndelete" onClick={onDelete}>
+                     Delete
                  </button>
                </div>
                <div>
-                <button className="btnview_property"><Link to=""> view property</Link></button>
+                <button className="btnview_property" onClick={viewProperty}> view property</button>
                </div>
             </div>
             </div>
             </div>
-          </div>
     </>
   )
 })

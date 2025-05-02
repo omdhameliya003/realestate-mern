@@ -115,6 +115,7 @@
   background-color: orange;
   font-size: 18px;
   border-radius: 5px;
+  color: white;
 }
 .listing-buttons button a,
 .view_more button a,.add_mylisting_btn a {

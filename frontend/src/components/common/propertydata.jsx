@@ -12,10 +12,8 @@ export async function getProperties(setProperties){
         }
         );
         const data= await res.json() ;
-        console.log("hello for testing.")
         const propertydata=data.properties;
         setProperties(propertydata)
-        console.log("property data:-",propertydata);
     } catch (error) {
         console.log("Error:-",error)   
     }

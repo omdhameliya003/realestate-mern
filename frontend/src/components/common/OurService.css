@@ -40,11 +40,10 @@
     color: #666666;
   }
 
-
   @media screen and (max-width: 991px) {
     .service-container .card {
-        max-width: 250px;
-        max-height: 250px;
+        max-width: 270px;
+        max-height: 270px;
       }
       .card .card-desc{
         font-size: 16px;
