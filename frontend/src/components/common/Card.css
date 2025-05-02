@@ -1,0 +1,93 @@
+
+
+.client-review-container,
+.dashbord-container,
+.requiest-container {
+  width: 1100px;
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.steps-cards,
+.client-cards,
+.dashbord-container .dashbord-cards,
+.requiest-container .requiest-cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card,
+.dashbord-card,
+.requiest-card {
+  max-width: 300px;
+  max-height: 300px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+.card img {
+  max-width: 80px;
+  max-height: 80px;
+}
+.card h2,
+.steps-section h1,
+.client-review-container h1 {
+  text-transform: capitalize;
+}
+.card .card-desc {
+  word-spacing: 2px;
+  line-height: 1.5;
+  font-size: 18px;
+  color: #666666;
+}
+
+.client-rating {
+  display: flex;
+
+  padding-bottom: 15px;
+  border-bottom: 1px solid gray;
+}
+.client-photo img {
+  border: 3px solid gray;
+  border-radius: 50%;
+  float: left;
+}
+.client-name h2 {
+  margin: 10px 30px;
+}
+.stars i {
+  color: red;
+}
+.client-desc {
+  text-align: start;
+}
+
+
+@media screen and (max-width: 900px) {
+    .steps-cards,
+    .client-cards,
+    .dashbord-container .dashbord-cards
+     {
+      grid-template-columns: auto auto;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    .steps-cards
+    {
+      grid-template-columns: auto;
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+  .steps-cards,
+  .client-cards,
+  .dashbord-container .dashbord-cards,
+  .requiest-container .requiest-cards {
+    grid-template-columns: auto;
+  }
+  }

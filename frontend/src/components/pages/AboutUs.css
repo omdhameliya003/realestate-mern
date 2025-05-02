@@ -1,0 +1,78 @@
+.about-container {
+    max-width: 1100px;
+    display: flex;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  .about-image-part {
+    width: 50%;
+    height: auto;
+  }
+  .about-image-part img {
+    max-width: 600px;
+    height: auto;
+  }
+  .about-content-part {
+    width: 50%;
+    align-content: center;
+    text-align: center;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+  .about-content-part h2 {
+    text-transform: capitalize;
+    margin: 0px;
+    font-size: 30px;
+  }
+  .about-content-part #btn-about,
+  .btnfilter {
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    text-transform: capitalize;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+  }
+  #btn-about a,
+  .btnfilter a {
+    color: white;
+  }
+  .steps-section{
+    width: 1100px;
+  max-width: 100%;
+  height: auto;
+  text-align: center;
+  margin: 50px auto;
+  }
+
+  .steps-cards {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 20px;
+  justify-content: center;
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+    .about-container {
+        flex-direction: column;
+      }
+      .about-image-part,
+      .about-content-part {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .about-content-part h2 {
+        font-size: 24px;
+      }
+}
+
+
+
+
+
+
