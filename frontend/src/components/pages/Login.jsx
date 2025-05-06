@@ -18,8 +18,7 @@ function Login() {
        headers: {
          "content-Type": "application/json",
          "Authorization": `Bearer ${token}`
-       },
-       body: JSON.stringify(),
+       }
      });
      const result= await res.json()
      console.log(result)

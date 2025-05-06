@@ -66,5 +66,43 @@ router.post("/login",async(req,res)=>{
     }
    });
 
+   router.put("/update-profile/:userid",async(req,res)=>{
+
+    const {fname,email,mobile,oldpass,newpass,conpass}=req.body;
+
+    try { 
+    const user= await User.findOne({_id:req.params.userid});
+    console.log("user data:-",user)
+    if(!user) return res.status(404).json({success:false ,message:"user not found."});
+
+    const isMatch= await bcrypt.compare(oldpass,user.password);
+
+    if(!isMatch){
+      return res.status(401).json({ success: false, message: "Incorrect old password." });
+     } 
+     if(newpass===""){
+      return res.status(400).json({ success:false, message: "Passwords not valid to empty." });
+     }
+
+     if(newpass!==conpass){
+      return res.status(400).json({ success:false, message: "Passwords do not match" });
+     }
+
+     const hashpassword= await bcrypt.hash(newpass,8);
+     console.log("hashedpassword:-",hashpassword)
+
+     const updateduser= await User.updateOne({_id:req.params.userid},{$set:{fname,email,mobile,password:hashpassword}})
+      console.log("updateduser:-",updateduser) ;
+
+      if(updateduser.modifiedCount===1){
+         res.status(200).json({success:true , message:"your profile updated successfully."});
+      }
+   
+      } catch (error) {
+         res.status(500).json({success:false, message:"something went wrong."})
+      }
+   })
+
+
 
 module.exports= router;

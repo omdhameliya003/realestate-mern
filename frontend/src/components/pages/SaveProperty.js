@@ -28,7 +28,7 @@ function SaveProperty() {
           }
         } 
         getsaveProperty();
-    },[])
+    },[savedProperties])
 
     const viewProperty=(property_id)=>{
         Navigate("/viewProperty",{state:{property_id }});
@@ -37,11 +37,11 @@ function SaveProperty() {
   return (
     <>
     <Navbar/>
-    {properties && properties.length>0 ?
+    {properties && properties?.length>0 ?
      <div className="listing-container">
     <h2>Saved Property</h2>
     {
-      properties.map((item,index)=>{
+      properties?.map((item,index)=>{
         return <PropertyCard  key={item._id} propertydata={item} viewProperty={()=>viewProperty(item._id) }  onSave={()=>toggleSave(item._id)} />
       })
     }

@@ -15,7 +15,7 @@ import { FaExpandArrowsAlt } from "react-icons/fa";
 import { useSave } from "../common/SaveContext";
 import { Link } from 'react-router-dom';
 
-const PropertyCard=React.memo(({propertydata,viewProperty,onSave})=> {
+const PropertyCard=React.memo(({propertydata,viewProperty,onSave,onRequiest})=> {
 
    const { savedProperties} = useSave();
   const isSaved = savedProperties.includes(propertydata._id);
@@ -90,7 +90,7 @@ const formattedDateString = formattedDate.replace(/\//g, '-').replace(',', '');
               </div>
               <div className="listing-buttons">
                 <button className="btnviewproperty" onClick={viewProperty}> View Property</button>
-                <button className="btnsendenquery">Send Enquiry</button>
+                <button className="btnsendenquery" onClick={onRequiest}>Send Enquiry</button>
               </div>
             </div>
           </div>

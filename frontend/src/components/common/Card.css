@@ -66,6 +66,43 @@
   text-align: start;
 }
 
+/* -----------------------------------------------------------requiest-csrd-------------------------------------------- */
+.requiest-card {
+  font-size: 20px;
+  text-align: start;
+  max-height: 380px;
+}
+.requiest-card p{
+  margin-top: 0px;
+}
+.requiest-card .cardIcon{
+  padding-right: 10px;
+}
+.requiest-card button {
+  max-width: 300px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: orange;
+  margin: 5px auto;
+  color: white;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+.no_request{
+  text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+  .dashbord-card {
+    max-width: 270px;
+    max-height: 270px;
+  }
+  .requiest-container .requiest-cards{
+    grid-template-columns: auto auto;
+  }
+}
 
 @media screen and (max-width: 900px) {
     .steps-cards,
@@ -76,9 +113,8 @@
     }
   }
 
-  @media screen and (max-width: 560px) {
-    .steps-cards
-    {
+  @media screen and (max-width: 768px) {
+    .requiest-container .requiest-cards{
       grid-template-columns: auto;
     }
   }

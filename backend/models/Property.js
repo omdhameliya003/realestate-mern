@@ -124,7 +124,7 @@ const PropertySchema= new mongoose.Schema({
       },
       images:{type:[String]},
 
-      user_id:{
+      user:{
         type:  mongoose.Schema.Types.ObjectId,
         ref:"User",
         required: true,
