@@ -1,0 +1,84 @@
+.contact-container {
+    max-width: 800px;
+    padding: 20px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .contact-container h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .info-box {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .info-box .contects-icon {
+    font-size: 24px;
+    color:orange;
+  }
+  
+  .info-box p {
+    margin: 5px 0;
+    font-size: 16px;
+    color:gray;
+  }
+  
+  .contact-form {
+    text-align: center;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 5px;
+    margin: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .contact-form textarea {
+    height: 120px;
+    resize: none;
+  }
+  
+  .btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+
+
+  @media screen and (max-width: 900px) {
+    .contact-container {
+        margin: 40px 20px;
+    }
+  }
