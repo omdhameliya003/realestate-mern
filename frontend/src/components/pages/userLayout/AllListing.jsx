@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import PropertyCard from "../common/PropertyCard";
-import { getProperties } from "../common/propertydata";
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
+import PropertyCard from "../../common/PropertyCard";
+import { getProperties } from "../../common/propertydata";
+import Navbar from "../../common/Navbar";
+import Footer from "../../common/Footer";
 import { useNavigate } from "react-router-dom";
-import { useSave } from "../common/SaveContext";
-import { useAlert } from "../common/AlertProvider";
+import { useSave } from "../../common/SaveContext";
+import { useAlert } from "../../common/AlertProvider";
 
 function AllListing() {
   const Navigate = useNavigate();
-  const { savedProperties,toggleSave } = useSave();
+  const {toggleSave } = useSave();
 
    const { showAlert } = useAlert();
 
@@ -26,23 +26,6 @@ function AllListing() {
   useEffect(() => {
     getProperties(setProperties);
   }, []);
-
-  // useEffect(()=>{
-  //   async function getsavesList(){
-  //     const token = JSON.parse(localStorage.getItem("token") || "");
-  //     const user_id = JSON.parse(localStorage.getItem("user_id") || "");
-  //     const res= await fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
-  //       method:"GET",
-  //       headers:{
-  //         "Authorization":`Bearer ${token}`,
-  //         "Content-Type":"application/json",
-  //       }
-  //     })
-  //     const result= await res.json();
-  //     setSaveList(result.propertyIds)
-  //   }
-  //   getsavesList();
-  // },[])
 
   const onRequiest= async(property_id,owner_id)=>{
     console.log("property_id:-",property_id);
@@ -66,8 +49,6 @@ function AllListing() {
     }else{
       showAlert('warning', result.message);
     }
-
-
   }
 
 
@@ -84,7 +65,7 @@ function AllListing() {
       <div className="listing-container">
         <h2>All Listing</h2>
         {
-          properties.map((item, index) => {
+          properties.map((item) => {
             return (
               <PropertyCard
                 key={item._id}

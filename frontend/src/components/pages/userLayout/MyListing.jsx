@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
-import MyListingCard from "../common/MyListingCard";
+import Navbar from "../../common/Navbar";
+import Footer from "../../common/Footer";
+import MyListingCard from "../../common/MyListingCard";
 import Swal from 'sweetalert2';
-import { useAlert } from "../common/AlertProvider";
+import { useAlert } from "../../common/AlertProvider";
 import { useNavigate,Link } from "react-router-dom";
 
 function MyListing() {
@@ -65,6 +65,11 @@ function MyListing() {
      Navigator("/viewProperty",{state:{property_id }});
   }
 
+  const handleUpdate=(property_id)=>{
+    Navigator("/postProperty",{state:{property_id}});
+     console.log("property_id:-", property_id)
+  }
+  
   return (
     <>
       <Navbar />
@@ -74,7 +79,7 @@ function MyListing() {
          <div className="my_listing_flex">
          {
              properties.map((item,index) => {
-                 return <MyListingCard propertiesdata={item}  key={item._id} onDelete={()=> handleDelete(item._id)} viewProperty={()=>viewProperty(item._id) } />
+                 return <MyListingCard propertiesdata={item}  key={item._id} onDelete={()=> handleDelete(item._id)} viewProperty={()=>viewProperty(item._id) } onUpdate={()=>handleUpdate(item._id)} />
                 })
             }
             </div>

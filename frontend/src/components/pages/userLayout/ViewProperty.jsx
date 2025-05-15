@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import "./ViewProperty.css";
 import { useLocation } from "react-router-dom";
 import { FaCheck } from "react-icons/fa6";
@@ -7,25 +7,29 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { FaTag } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import { FaBuilding } from "react-icons/fa";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaStore } from "react-icons/fa";
+import { useAlert } from "../../common/AlertProvider";
 
 function ViewProperty() {
-  const Navigator = useNavigate();
   const [property, setProperty] = useState({});
   const [slidenum, setslidenum] = useState(0);
   const { state } = useLocation();
 
-  const images = [
-    { src: "images/house/house-1.jpeg" },
-    { src: "images/house/house-2.jpeg" },
-    { src: "images/house/house-3.jpeg" },
-    { src: "images/house/house-4.jpg" },
-    { src: "images/house/house-5.jpeg" },
-  ];
+  const {showAlert}= useAlert();
+
+ const images= useMemo(()=>{
+   return [
+      { src: "images/house/house-1.jpeg" },
+      { src: "images/house/house-2.jpeg" },
+      { src: "images/house/house-3.jpeg" },
+      { src: "images/house/house-4.jpg" },
+      { src: "images/house/house-5.jpeg" },
+    ];
+  },[])
 
   //   useEffect(()=>{
   //     if(!state.property_id ){
@@ -51,7 +55,7 @@ function ViewProperty() {
       }
     };
     getproperty();
-  }, []);
+  }, [state.property_id]);
 
   const postedDate = useMemo(() => {
     const objdate = new Date(property.posted_at);
@@ -67,11 +71,7 @@ function ViewProperty() {
     setslidenum((prev) => prev + num);
   };
   
-  useEffect(()=>{
-    slideshow(slidenum);
-  },[slidenum])
-
-  function slideshow(num) {
+  const slideshow = useCallback((num)=>{
     // console.log("inside slideshow:-",num)
     let slides =images;
 
@@ -84,9 +84,35 @@ function ViewProperty() {
       setslidenum(slides.length -2 );
       num = slides.length -2 ;
     }
-  }
+  },[images]);
 
-  console.log("slidenum:-", slidenum);
+  useEffect(()=>{
+    slideshow(slidenum);
+  },[slidenum,slideshow])
+
+  const onRequiest= async(property_id,owner_id)=>{
+    console.log("property_id:-",property_id);
+    console.log("owner_id:-",owner_id)
+    const token= JSON.parse(localStorage.getItem("token")||"");
+    const user_id= JSON.parse(localStorage.getItem("user_id")||"");
+    console.log("user_id:-",user_id);
+    const res= await fetch(`http://localhost:5000/requiest`,{
+      method:"POST",
+      headers:{
+        "content-Type":"application/json",
+        "Authorization":`Bearer ${token}`
+      },
+      body:JSON.stringify({property_id,owner_id,user_id})
+    });
+
+    const result= await res.json();
+
+    if(result.success){
+    showAlert('success', result.message);
+    }else{
+      showAlert('warning', result.message);
+    }
+  }
 
   return (
     <>
@@ -121,7 +147,7 @@ function ViewProperty() {
 
           <h3 className="name">{property.property_name}</h3>
           <p className="location">
-            <i className="fas fa-map-marker-alt"></i>
+          <FaMapMarkerAlt className="viewPropertyIcon"/>
             <span>
               {property.address +
                 " , " +
@@ -349,8 +375,8 @@ function ViewProperty() {
             >
               ← Go Back
             </button>
-            <button className="btnsendenquery">
-              <a href="">Send Enquiry</a>
+            <button className="btnsendenquery" onClick={()=>onRequiest(property._id, property.user._id)}>
+               Send Enquiry
             </button>
           </div>
         </div>

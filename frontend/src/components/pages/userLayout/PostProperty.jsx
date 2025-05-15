@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import InputFild from "../ui/InputFild";
-import SelectFiel from "./../ui/SelectFiel";
-import CheckBox from "../ui/CheckBox";
+import InputFild from "../../ui/InputFild";
+import SelectFiel from "../../ui/SelectFiel";
+import CheckBox from "../../ui/CheckBox";
 import "./PostProperty.css";
 import "./Form.css";
-import TextArea from "./../ui/TextArea";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../common/Navbar"
-import Footer from "../common/Footer"
+import TextArea from "../../ui/TextArea";
+import Navbar from "../../common/Navbar"
+import Footer from "../../common/Footer"
+import { useLocation } from "react-router-dom";
 
 function PostProperty() {
-  const Navigate = useNavigate();
+  const { state } = useLocation();
+
   // useEffect(()=>{
   //     const auth= JSON.parse(localStorage.getItem("user_id"));
   //     if(!auth || auth===""){
@@ -70,6 +71,26 @@ function PostProperty() {
   }, [formData.type]);
 
   useEffect(() => {
+    const getproperty = async () => {
+      const token = JSON.parse(localStorage.getItem("token") || "");
+      const res = await fetch(
+        `http://localhost:5000/property/${state?.property_id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const result = await res.json();
+      if (result.success) {
+       setformData(result.property);
+      }
+    };
+    getproperty();
+  },[state?.property_id]);
+
+  useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("user_id"));
     setformData((prev) => ({ ...prev, userId: userId }));
   }, []);
@@ -118,7 +139,7 @@ function PostProperty() {
         [name]: value,
       }));
     }
-  };
+  }; 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const filedata= new FormData(); 
@@ -278,7 +299,7 @@ function PostProperty() {
     { name: "school", lable: "school" },
     { name: "market_area", lable: "market area" },
   ];
-
+console.log("formdata:-",formData)
   return (
     <>
     <Navbar/>
@@ -473,10 +494,10 @@ function PostProperty() {
 
           <div className="checkbox">
             <div>
-              <CheckBox facilites={amities1} onChange={handleChange} />
+              <CheckBox facilites={amities1} onChange={handleChange} propertydata={formData} />
             </div>
             <div>
-              <CheckBox facilites={amities2} onChange={handleChange} />
+              <CheckBox facilites={amities2} onChange={handleChange}  propertydata={formData} />
             </div>
           </div>
 

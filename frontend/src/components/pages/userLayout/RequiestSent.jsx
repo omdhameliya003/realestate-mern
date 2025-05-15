@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import RequistCard from '../common/RequistCard'
-import Navbar from '../common/Navbar';
-import Footer from '../common/Footer';
-import { useAlert } from '../common/AlertProvider';
+import RequistCard from '../../common/RequistCard'
+import Navbar from '../../common/Navbar';
+import Footer from '../../common/Footer';
+import { useAlert } from '../../common/AlertProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 function RequiestSent() {
 
    const [requiestData, setRequiestData]=useState([])
    const {showAlert}= useAlert();
+   const Navigate= useNavigate();
   
       useEffect(()=>{
           async function getrequiestData(){
@@ -20,7 +22,7 @@ function RequiestSent() {
                   headers:{
                    "Authorization":`Bearer ${token}`,
                   }
-              });
+              },[]);
   
               const result= await res.json();
               console.log("requiest data:-", result.requiestdata)
@@ -47,6 +49,11 @@ function RequiestSent() {
             showAlert('error',result.message)
          }
        } 
+
+       const viewProperty = (property_id) => {
+        Navigate("/viewProperty", { state: { property_id } });
+      };
+
   return (
     <>
     <Navbar/>
@@ -57,7 +64,7 @@ function RequiestSent() {
         <div className="requiest-cards">
      {  
          requiestData.map((item,index)=>{
-             return <RequistCard requiestData={item} OnDelete={()=>OnDeleteRequiest(item._id)} key={item._id} />
+             return <RequistCard requiestData={item} OnDelete={()=>OnDeleteRequiest(item._id)} key={item._id} viewProperty={() => viewProperty(item.property_id._id)}/>
              
             }) 
         }

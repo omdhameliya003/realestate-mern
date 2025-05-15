@@ -178,6 +178,12 @@ margin: 5px 0px;
 border-radius: 5px;
 }
 
+@media (max-width: 991px) {
+    .view-property{
+        margin: 20px;
+    }
+}
+
 @media (max-width: 767px) {
     .view-property {
         padding: 15px;

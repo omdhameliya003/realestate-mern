@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "./Form.css";
 import { FaRegEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import {useAlert} from './../common/AlertProvider';
+import {useAlert} from '../../common/AlertProvider';
 
 function Login() {
   const [showpass, setShowpass] = useState(false);
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const Navigate = useNavigate();
   const { showAlert } = useAlert();
 
@@ -21,7 +21,6 @@ function Login() {
        }
      });
      const result= await res.json()
-     console.log(result)
      const user_id=result.user._id;
      localStorage.setItem("user_id",JSON.stringify(user_id))
     }
@@ -38,7 +37,6 @@ function Login() {
         body: JSON.stringify(data),
       });
       const result = await res.json();
-      console.log(result);
       if(result.token){
         localStorage.setItem("token",JSON.stringify(result.token));
       }
@@ -48,9 +46,17 @@ function Login() {
             setEmail("");
         setPassword("");
         Navigate("/home");
-        showAlert('success', 'Login Successful!');
+        showAlert('success', result.message);
+        function handleLoginSuccess(token) {
+          const payload = JSON.parse(atob(token.split('.')[1]));
+          const expiryTime = payload.exp * 1000;
+          localStorage.setItem('token', token);
+          localStorage.setItem('tokenExpiry', expiryTime);
+        }
+        handleLoginSuccess(JSON.stringify(result.token));
+
       } else {
-        showAlert('error', 'Fail to Login');
+        showAlert('error', result.message);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -61,7 +67,7 @@ function Login() {
   return (
     <div className="form-container form-center">
       <div className="my-form">
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <h2>Login</h2>
           <input
             type="email"

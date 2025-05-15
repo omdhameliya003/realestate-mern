@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./Form.css"
 import { FaRegEye } from "react-icons/fa";
-import {useAlert} from './../common/AlertProvider';
-import Footer from '../common/Footer';
-import Navbar from '../common/Navbar';
+import {useAlert} from '../../common/AlertProvider';
+import Footer from '../../common/Footer';
+import Navbar from '../../common/Navbar';
 import { useNavigate } from 'react-router-dom';
 
 function UpdateProfile() {

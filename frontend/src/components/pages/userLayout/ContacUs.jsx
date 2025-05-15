@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import  "./ContactUs.css"
-import Navbar from '../common/Navbar'
-import Footer from '../common/Footer'
+import Navbar from '../../common/Navbar'
+import Footer from '../../common/Footer'
 import { FaPhone } from "react-icons/fa6";
 import { FaEnvelope } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { useAlert } from '../common/AlertProvider';
+import { useAlert } from '../../common/AlertProvider';
 function ContacUs() {
 
   const {showAlert}=useAlert();

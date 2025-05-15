@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import "./AboutUs.css"
-import Navbar from '../common/Navbar'
-import StepCard from '../common/StepCard'
-import ReviewCard from '../common/ReviewCard';
-import Footer from '../common/Footer';
+import Navbar from '../../common/Navbar'
+import StepCard from '../../common/StepCard'
+import ReviewCard from '../../common/ReviewCard';
+import Footer from '../../common/Footer';
 
 function AboutUs() {
    

@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import InputFild from './../ui/InputFild';
-import SelectFiel from '../ui/SelectFiel';
+import InputFild from '../../ui/InputFild';
+import SelectFiel from '../../ui/SelectFiel';
 import "./Form.css"
-import Footer from '../common/Footer';
-import Navbar from './../common/Navbar';
-import { useAlert } from '../common/AlertProvider';
-import PropertyCard from '../common/PropertyCard';
+import Footer from '../../common/Footer';
+import Navbar from '../../common/Navbar';
+import { useAlert } from '../../common/AlertProvider';
+import PropertyCard from '../../common/PropertyCard';
 
 function Filter() {
     const { showAlert } = useAlert();

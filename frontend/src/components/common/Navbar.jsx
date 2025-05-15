@@ -48,7 +48,7 @@ function Navbar() {
          </Link>
     </div>
     <div className="header-post-property">
-      <Link>Post Property<IoIosPaperPlane className='icon-nav' /></Link>
+      <Link to="/postProperty">Post Property<IoIosPaperPlane className='icon-nav' /></Link>
     </div>
    </header>
 

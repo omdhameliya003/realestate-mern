@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import PropertyCard from '../common/PropertyCard';
-import Navbar from "../common/Navbar"
-import Footer from "../common/Footer"
+import PropertyCard from '../../common/PropertyCard';
+import Navbar from "../../common/Navbar"
+import Footer from "../../common/Footer"
 import { useNavigate } from 'react-router-dom';
-import { useSave } from "../common/SaveContext";
+import { useSave } from "../../common/SaveContext";
 
 function SaveProperty() {
    const [properties,setProperties]=useState([]);
