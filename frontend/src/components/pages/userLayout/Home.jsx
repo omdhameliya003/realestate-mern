@@ -9,11 +9,13 @@ import { getProperties } from '../../common/propertydata';
 import { useSave } from "../../common/SaveContext";
 import { Link } from 'react-router-dom';
 import { LiaAngleDownSolid } from "react-icons/lia";
+import { useAlert } from '../../common/AlertProvider';
 
 function Home() {
 
     const [properties,setProperties]=useState([])
     const {  toggleSave } = useSave();
+    const {showAlert}= useAlert();
 
     const Navigate=useNavigate()
 
@@ -38,9 +40,33 @@ function Home() {
         Navigate("/") 
       }
    },[properties])
+
+    const onRequiest= async(property_id,owner_id)=>{
+    console.log("property_id:-",property_id);
+    console.log("owner_id:-",owner_id)
+    const token= JSON.parse(localStorage.getItem("token")||"");
+    const user_id= JSON.parse(localStorage.getItem("user_id")||"");
+    console.log("user_id:-",user_id);
+    const res= await fetch(`http://localhost:5000/requiest`,{
+      method:"POST",
+      headers:{
+        "content-Type":"application/json",
+        "Authorization":`Bearer ${token}`
+      },
+      body:JSON.stringify({property_id,owner_id,user_id})
+    });
+
+    const result= await res.json();
+
+    if(result.success){
+    showAlert('success', result.message);
+    }else{
+      showAlert('warning', result.message);
+    }
+  }
    
    const viewProperty = (property_id) => {
-    Navigate("/viewProperty", { state: { property_id } });
+    Navigate("/user/viewProperty", { state: { property_id } });
   };
 
   return (
@@ -52,11 +78,13 @@ function Home() {
        <h2>Latest Listing</h2>
       {
        properties && properties.slice(-1).map((item,index)=>{
-        return <PropertyCard  cardDetail={item} key={index} propertydata={item}  onSave={()=>toggleSave(item._id)} viewProperty={() => viewProperty(item._id)}/>
+        return <PropertyCard  cardDetail={item} key={index} propertydata={item}  onSave={()=>toggleSave(item._id)} viewProperty={() => viewProperty(item._id)}
+         onRequiest={()=>onRequiest(item._id,item.user._id)}
+        />
         })
       }
       <div className="view_more">
-     <button className="btn_view_more"><Link to="/allListing">View More</Link><LiaAngleDownSolid  style={{paddingLeft:"5px"}}/></button>
+     <button className="btn_view_more"><Link to="/user/allListing">View More</Link><LiaAngleDownSolid  style={{paddingLeft:"5px"}}/></button>
     </div>
       </div>
        <Footer></Footer>

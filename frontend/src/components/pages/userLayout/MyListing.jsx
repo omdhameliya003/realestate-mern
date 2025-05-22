@@ -62,11 +62,11 @@ function MyListing() {
  }
 
   const viewProperty=(property_id)=>{
-     Navigator("/viewProperty",{state:{property_id }});
+     Navigator("/user/viewProperty",{state:{property_id }});
   }
 
   const handleUpdate=(property_id)=>{
-    Navigator("/postProperty",{state:{property_id}});
+    Navigator("/user/postProperty",{state:{property_id}});
      console.log("property_id:-", property_id)
   }
   
@@ -89,7 +89,7 @@ function MyListing() {
         <div className="no_property">
           <p>No listings found. Be the first to post a property!</p>
           <button className="add_mylisting_btn">
-            <Link to="/postProperty"> Add New </Link>
+            <Link to="/user/postProperty"> Add New </Link>
           </button>
         </div>
       )}
