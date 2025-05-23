@@ -22,7 +22,7 @@ function Sidebar() {
                 <li><Link to="/admin/manageuser">Manage Users</Link></li>
                 <li><Link to="/admin/messages">Messages</Link></li>
                 <li><Link to="/admin/manageproperty">View Properties</Link></li>
-                <li><a href="logout.php">Logout</a></li>
+                <li><Link to="/logout">Logout</Link></li>
             </ul>
  </div>
     </>

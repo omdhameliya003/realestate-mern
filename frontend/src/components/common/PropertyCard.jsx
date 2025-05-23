@@ -44,7 +44,7 @@ const formattedDateString = formattedDate.replace(/\//g, '-').replace(',', '');
                         </button>
 
                         <button className="comment-button">
-                          <Link to={`/comment/${propertydata._id}`}><FaComments /> Comment </Link>
+                          <Link to={`/user/comment/${propertydata._id}`}><FaComments /> Comment </Link>
                         </button>
                 </div>
             <div className="listing-img">
@@ -96,10 +96,6 @@ const formattedDateString = formattedDate.replace(/\//g, '-').replace(',', '');
           </div>
         </div>
       </div>
-    {/* <div className="view_more">
-     <button className="btn_view_more"><a href="all_listing.php">View More</a>
-     <i className="fa fa-angle-down" aria-hidden="true" style="color:white; padding-left:5px; font-size:24px"></i></button>
-    </div> */}
     </>
   )
 });

@@ -6,16 +6,16 @@ function Slider() {
         
     const images=[
 {
-    src:"images/house.jpg",caption:"House"
+    src:"../images/house.jpg",caption:"House"
 },
 {
-    src:"images/office.jpg",caption:"Office"
+    src:"../images/office.jpg",caption:"Office"
 },
 {
-     src:"images/flat.jpg",caption:"Flat"
+     src:"../images/flat.jpg",caption:"Flat"
 },
 {
-     src:"images/shop.jpg",caption:"Shop"
+     src:"../images/shop.jpg",caption:"Shop"
 }
 
     ];

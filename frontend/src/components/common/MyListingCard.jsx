@@ -2,9 +2,8 @@ import React from 'react'
 import "./MyListingCard.css";
 import { PiCurrencyInrBold } from "react-icons/pi";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { Link } from 'react-router-dom';
 
-const MyListingCard = React.memo(({propertiesdata,onDelete,viewProperty})=> {
+const MyListingCard = React.memo(({propertiesdata,onDelete,viewProperty ,onUpdate})=> {
 
   return (
     <>
@@ -31,7 +30,7 @@ const MyListingCard = React.memo(({propertiesdata,onDelete,viewProperty})=> {
             </div>
             <div className="my_listing_buttons">
                <div className="my_list_btn_flex">
-                 <button className="btnupdate">
+                 <button className="btnupdate" onClick={onUpdate}>
                     update
                  </button>
                  <button className="btndelete" onClick={onDelete}>

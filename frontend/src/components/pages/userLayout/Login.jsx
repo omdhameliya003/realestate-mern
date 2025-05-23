@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css";
+import "./Login-Register.css"
 import { FaRegEye } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import {useAlert} from '../../common/AlertProvider';
+import { useAlert } from "../../common/AlertProvider";
+import { useAuth } from "../../common/AuthContext";
 
 function Login() {
   const [showpass, setShowpass] = useState(false);
@@ -10,20 +12,23 @@ function Login() {
   const [password, setPassword] = useState("");
   const Navigate = useNavigate();
   const { showAlert } = useAlert();
+  const { setUser } = useAuth();
 
-  const getprofile= async()=>{
-    const token=JSON.parse(localStorage.getItem("token")) || "";
-     const res = await fetch("http://localhost:5000/auth/me", {
-       method: "GET",
-       headers: {
-         "content-Type": "application/json",
-         "Authorization": `Bearer ${token}`
-       }
-     });
-     const result= await res.json()
-     const user_id=result.user._id;
-     localStorage.setItem("user_id",JSON.stringify(user_id))
-    }
+  const getprofile = async () => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const res = await fetch("http://localhost:5000/auth/me", {
+      method: "GET",
+      headers: {
+        "content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const result = await res.json();
+    const user_id = result.user._id;
+    console.log("user_id from getprofile function1:-",result.user._id)
+    console.log("user_id from getprofile function2:-",user_id)
+    localStorage.setItem("user_id", JSON.stringify(user_id));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,35 +42,52 @@ function Login() {
         body: JSON.stringify(data),
       });
       const result = await res.json();
-      if(result.token){
-        localStorage.setItem("token",JSON.stringify(result.token));
+      if (result.token) {
+        localStorage.setItem("token", JSON.stringify(result.token));
       }
 
       if (result.success) {
         getprofile();
-            setEmail("");
+        setEmail("");
         setPassword("");
-        Navigate("/home");
-        showAlert('success', result.message);
+        localStorage.setItem("user", JSON.stringify(result.user));
+        setUser(result.user);
+        if (result.user.role) {
+          if (result.user.role === "admin") {
+            Navigate("/admin/dashboard");
+          } else {
+            Navigate("/user/home");
+            showAlert("success", result.message);
+          }
+        } else {
+          Navigate("/logout");
+        }
         function handleLoginSuccess(token) {
-          const payload = JSON.parse(atob(token.split('.')[1]));
+          const payload = JSON.parse(atob(token.split(".")[1]));
           const expiryTime = payload.exp * 1000;
-          localStorage.setItem('token', token);
-          localStorage.setItem('tokenExpiry', expiryTime);
+          localStorage.setItem("token", token);
+          localStorage.setItem("tokenExpiry", expiryTime);
         }
         handleLoginSuccess(JSON.stringify(result.token));
-
       } else {
-        showAlert('error', result.message);
+        showAlert("error", result.message);
       }
     } catch (error) {
       console.error("Error:", error);
-      showAlert('error', "Something went wrong.");
+      showAlert("error", "Something went wrong.");
     }
   };
 
   return (
-    <div className="form-container form-center">
+    <div className="form-wrapper">
+      <div className="left-image-side">
+        <img
+          src="/images/dream-house.png"
+          alt="Real Estate"
+        />
+      </div>
+       <div className="right-form-side">
+       <div className="form-container">
       <div className="my-form">
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
@@ -96,8 +118,9 @@ function Login() {
           <input type="submit" value="Login Now" />
         </form>
       </div>
-      </div>
-   
+       </div>
+    </div>
+    </div>
   );
 }
 

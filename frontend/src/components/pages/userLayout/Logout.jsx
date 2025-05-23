@@ -7,6 +7,9 @@ function Logout() {
     const { showAlert } = useAlert();
  localStorage.removeItem("user_id");
  localStorage.removeItem("token");
+ localStorage.removeItem("user");
+ localStorage.removeItem("user_id")
+ localStorage.removeItem("tokenExpiry")
  const Navigate=useNavigate()
  
  useEffect(()=>{

@@ -9,32 +9,33 @@ export const useSave = ()=> useContext(SaveContext);
 
 export const SaveProvider= ({children})=>{
   const [savedProperties, setSavedProperties] = useState([]);
-     const { showAlert } = useAlert();
+  const { showAlert } = useAlert();
 
      useEffect(()=>{
-      const fetchSaved = async () => {
-        const token = JSON.parse(localStorage.getItem("token") || "");
-        const user_id = JSON.parse(localStorage.getItem("user_id") || "");
+       const token = JSON.parse(localStorage.getItem("token"));
+       const user_id = JSON.parse(localStorage.getItem("user_id"));
 
+      const fetchSaved = async () => {
         const res = await fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
           method:"GET",
         headers:{
-          "Authorization":`Bearer ${token}`,
-          "Content-Type":"application/json",
+          Authorization:`Bearer ${token}`,
         }
         },[user_id]);
 
         const data = await res.json();
         setSavedProperties(data.propertyIds); 
       };
-      fetchSaved();
+      if(token && user_id){
+        fetchSaved();
+      }
      },[])
 
 
       async function toggleSave(property_id){
 
-        const token = JSON.parse(localStorage.getItem("token") || "");
-        const user_id = JSON.parse(localStorage.getItem("user_id") || "");
+        const token = JSON.parse(localStorage.getItem("token"));
+        const user_id = JSON.parse(localStorage.getItem("user_id"));
         const isSaved= savedProperties.includes(property_id);
 
         const endpoint= isSaved ?"/unsaveProperty":"/saveProperty";
@@ -45,7 +46,7 @@ export const SaveProvider= ({children})=>{
             method: "POST",
             headers: {
               "Content-Type":"application/json",
-              "Authorization": `Bearer ${token}`,
+              Authorization: `Bearer ${token}`,
             },
             body:JSON.stringify({ user_id: user_id, property_id: property_id })
           }

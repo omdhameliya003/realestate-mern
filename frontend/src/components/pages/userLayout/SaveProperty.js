@@ -15,12 +15,12 @@ function SaveProperty() {
 
     useEffect(()=>{
       async function getsaveProperty(){
-        const token= JSON.parse(localStorage.getItem('token')||"");
-        const user_id=JSON.parse(localStorage.getItem('user_id')||"");
+        const token= JSON.parse(localStorage.getItem('token'));
+        const user_id=JSON.parse(localStorage.getItem('user_id'));
           const res = await fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
             method:"GET",
             headers:{
-                "Authorization":`Bearer ${token}`
+                Authorization:`Bearer ${token}`
             }
           });
           const result= await res.json();

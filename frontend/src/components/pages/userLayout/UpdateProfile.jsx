@@ -49,67 +49,6 @@ function UpdateProfile() {
             getprofile();
         },[]);
 
-        // const validation=()=>{
-        //     const nameRegex = /^[A-Za-z]+$/;
-      
-        //     if(!formData.fname && formData.fname<2){
-        //       setErrors({ fname: "*first name must be contain minimam 2 character." });
-        //       return false;
-        //     }else if (!nameRegex.test(formData.fname)) {
-        //       setErrors({ fname: "*please enter a valid first name." });
-        //     return false;
-        //     }
-
-        //     if (!formData.email) {
-        //         setErrors({ email: "*email is not valid to empty." });
-        //       return false;
-        //       } else if (formData.email.indexOf('@') <= 0) {
-        //         setErrors({ email: "*invalid position of '@'" });
-        //       return false;
-        //       } else if (
-        //         formData.email.charAt(formData.email.length - 4) !== '.' &&
-        //         formData.email.charAt(formData.email.length - 3) !== '.'
-        //       ) {
-        //         setErrors({ email:"*invalid position of '."  });
-        //         return false;
-        //       }
-          
-        //       if (!formData.mobile || isNaN(formData.mobile) || formData.mobile.length !== 10) {
-        //         setErrors({ mobile: "*Enter a valid 10-digit mobile number." });
-        //       return false;
-        //       }else if (!/^[6-9]\d{9}$/.test(formData.mobile)) {
-        //         setErrors({ mobile: "*Mobile number must start with 6, 7, 8, or 9."});
-        //       return false;
-        //     }
-        //     if (!formData.newpass) {
-        //         setErrors({ newpass: "*Password cannot be empty." });
-        //         return false;
-        //       } else if (formData.newpass.length < 8) {
-        //         setErrors({ newpass: "*Password must be at least 8 characters long." });
-        //         return false;
-        //       } else if (!/[A-Z]/.test(formData.newpass)) {
-        //         setErrors({ newpass: "*Password must contain at least one uppercase letter." });
-        //         return false;
-        //       } else if (!/[a-z]/.test(formData.newpass)) {
-        //         setErrors({ newpass: "*Password must contain at least one lowercase letter." });
-        //         return false;
-        //       } else if (!/[0-9]/.test(formData.newpass)) {
-        //         setErrors({ newpass: "*Password must contain at least one digit." });
-        //         return false;
-        //       } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.newpass)) {
-        //         setErrors({ newpass: "*Password must contain a special character." });
-        //         return false;
-        //       }
-
-        //       if (!formData.conpass || formData.conpass !== formData.newpass    ) {
-        //         setErrors({ conpass: "*password or confirm password not match." });
-        //         return false;
-        //       }
-        //       setErrors({});
-        //       return true;
-        // }
-
-
     const handleChange=(e)=>{
 
       const {name,value}= e.target;

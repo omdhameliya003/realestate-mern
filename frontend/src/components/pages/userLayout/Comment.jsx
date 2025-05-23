@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import dayjs from 'dayjs'
 
 function Comment() {
-  const user_id = JSON.parse(localStorage.getItem("user_id") || "");
+  const user_id = JSON.parse(localStorage.getItem("user_id"));
   const { property_id } = useParams();
   const [isnewAdded, setIsnewAdded]=useState(false)
 
@@ -35,7 +35,7 @@ function Comment() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const token = JSON.parse(localStorage.getItem("token") || "");
+    const token = JSON.parse(localStorage.getItem("token"));
     const res = await fetch("http://localhost:5000/comment", {
       method: "POST",
       headers: {
@@ -101,7 +101,7 @@ function Comment() {
         {allcomments && allcomments.length > 0
           ? allcomments.map((item,index) => {
              return <div className="comment" key={item._id}>
-                <strong> {item.user_id.fname +" " +item?.user_id.lname +"  :-  "} </strong>
+                <strong> {item?.user_id?.fname +" " +item?.user_id?.lname +"  :-  "} </strong>
                 {item.commentMessage}
                 <time>{getExactTimeAgo(item.createdAt)}</time>
               </div>

@@ -2,17 +2,18 @@ import React, { useEffect, useState } from "react";
 import InputFild from "../../ui/InputFild";
 import SelectFiel from "../../ui/SelectFiel";
 import CheckBox from "../../ui/CheckBox";
-import "./PostProperty.css";
 import "./Form.css";
+import "./PostProperty.css";
 import TextArea from "../../ui/TextArea";
 import Navbar from "../../common/Navbar"
 import Footer from "../../common/Footer"
 import { useLocation } from "react-router-dom";
+import { useAlert } from "../../common/AlertProvider";
 
 function PostProperty() {
   const { state } = useLocation();
-
-  // useEffect(()=>{
+  const {showAlert}= useAlert();
+    // useEffect(()=>{
   //     const auth= JSON.parse(localStorage.getItem("user_id"));
   //     if(!auth || auth===""){
   //       Navigate("/")
@@ -91,8 +92,8 @@ function PostProperty() {
   },[state?.property_id]);
 
   useEffect(() => {
-    const userId = JSON.parse(localStorage.getItem("user_id"));
-    setformData((prev) => ({ ...prev, userId: userId }));
+    const user = JSON.parse(localStorage.getItem("user"));
+    setformData((prev) => ({ ...prev, userId: user._id }));
   }, []);
 
   const handleChange = (e) => {
@@ -142,16 +143,10 @@ function PostProperty() {
   }; 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const filedata= new FormData(); 
-    // for (const key in formData) {
-    //   if (formData[key]) {
-    //     filedata.append(key, formData[key]);
-    //   }
-    // }    
+    const filedata= new FormData();   
     for (const key in formData) {
       if (formData[key]) {
         if (typeof formData[key] === 'object' && !(formData[key] instanceof File)) {
-          // If object (but not File like image), then stringify
           filedata.append(key, JSON.stringify(formData[key]));
         } else {
           filedata.append(key, formData[key]);
@@ -164,20 +159,19 @@ function PostProperty() {
       const res = await fetch("http://localhost:5000/property", {
         method: "POST",
         headers: {
-          // "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
         body:filedata,
       });
       const result = await res.json();
       if (result.success) {
-        alert("property posted successfully.");
+        showAlert("success","property posted successfully.")
         setformData({ ...initialformData });
       } else {
-        alert(result.message || "postproperty failed.");
+        showAlert("error","postproperty failed.")
       }
     } catch (error) {
-      alert("Something went wrong.", error);
+      showAlert("error","Something went wrong,server error")
     }
   };
 
@@ -303,8 +297,8 @@ console.log("formdata:-",formData)
   return (
     <>
     <Navbar/>
-    <div className="form-container">
-      <div className="my-form " id="property-form">
+    <div className="form-container property-form-container">
+      <div className="my-form" id="property-form">
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <h3>Property Details</h3>
 

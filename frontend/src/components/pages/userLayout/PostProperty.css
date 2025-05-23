@@ -1,7 +1,12 @@
+.property-form-container{
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 5px;
+}
+
 #property-form {
     max-width: 1100px;
     border-radius: 8px;
-    margin: 10px auto;
   }
   #property-form h3 {
     font-size: 30px;
@@ -13,7 +18,6 @@
   #property-form form {
     display: grid;
     grid-template-columns: auto;
-    /* padding: 0px 20px; */
   }
   #property-form form .property-flex {
     display: grid;
@@ -24,10 +28,8 @@
     width: 95%;
     max-width: 100%;
     border: 1px solid black;
-    /* padding: 5px; */
   }
   #property-form form textarea {
-    padding: 15px;
     font-size: 20px;
     margin-left: 10px;
   }
@@ -46,7 +48,6 @@
     text-transform: capitalize;
     color: gray;
     margin-top: 5px;
-    /* margin-left: 7px; */
   }
   
   #property-form form p {
@@ -68,7 +69,6 @@
     margin-top: 0px;
   }
   #property-form form input[type="file"] {
-    /* text-align: center; */
     padding-top: 10px;
   }
   #property-form form input[type="submit"] {

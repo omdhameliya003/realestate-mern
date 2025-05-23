@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./Card.css"
 import { FaUser } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa6";
@@ -6,7 +6,7 @@ import { FaEnvelope } from "react-icons/fa";
 import { FaBuilding } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
-function RequistCard({requiestData,OnDelete}) {
+function RequistCard({requiestData,OnDelete,viewProperty}) {
 
      const dateObj= new Date(requiestData.createdAt)
      const formattedDate = dateObj.toLocaleString('en-GB', {
@@ -34,7 +34,7 @@ function RequistCard({requiestData,OnDelete}) {
                                 <span> {formattedTime}</span>
                         </p>
                         <button className="btndelete" onClick={OnDelete}>Delete Request</button>
-                        <button className="btnview_property">View Property</button>
+                        <button className="btnview_property" onClick={viewProperty} >View Property</button>
                     </div>
     </>
   )

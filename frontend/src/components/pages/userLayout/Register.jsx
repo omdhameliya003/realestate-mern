@@ -1,5 +1,6 @@
 import React, {useState } from 'react'
 import "./Form.css";
+import "./Login-Register.css"
 import { FaRegEye } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
@@ -158,7 +159,15 @@ function Ragister() {
   }
 
   return (
-    <div className='form-container form-center'>
+    <div className="form-wrapper">
+      <div className="left-image-side">
+        <img
+          src="/images/dream-house.png"
+          alt="Real Estate"
+        />
+      </div>
+       <div className="right-form-side">
+    <div className='form-container'>
       <div className='my-form'>
       <form action="" onSubmit={handleSubmit} >
         <h2>Create An Account</h2>
@@ -199,6 +208,8 @@ function Ragister() {
         <p>already have an account? <Link to="/">Login Now</Link> </p>
         <input type="submit" value="Register Now"   onClick={validation}/>
       </form>
+      </div>
+      </div>
       </div>
     </div>
   )

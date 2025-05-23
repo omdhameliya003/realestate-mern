@@ -10,7 +10,7 @@ function ContacUs() {
 
   const {showAlert}=useAlert();
 
-  const user_id= JSON.parse(localStorage.getItem("user_id")||"")
+  const user_id= JSON.parse(localStorage.getItem("user_id"));
 
   const initialstate={
     user_id:user_id,

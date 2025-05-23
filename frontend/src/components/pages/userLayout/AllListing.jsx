@@ -28,11 +28,8 @@ function AllListing() {
   }, []);
 
   const onRequiest= async(property_id,owner_id)=>{
-    console.log("property_id:-",property_id);
-    console.log("owner_id:-",owner_id)
-    const token= JSON.parse(localStorage.getItem("token")||"");
-    const user_id= JSON.parse(localStorage.getItem("user_id")||"");
-    console.log("user_id:-",user_id);
+    const token= JSON.parse(localStorage.getItem("token"));
+    const user_id= JSON.parse(localStorage.getItem("user_id"));
     const res= await fetch(`http://localhost:5000/requiest`,{
       method:"POST",
       headers:{
@@ -53,7 +50,7 @@ function AllListing() {
 
 
   const viewProperty = (property_id) => {
-    Navigate("/viewProperty", { state: { property_id } });
+    Navigate("/user/viewProperty", { state: { property_id } });
   };
 
   return (

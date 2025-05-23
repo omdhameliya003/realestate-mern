@@ -32,12 +32,52 @@ function ManageUser() {
     { key: "fname", lable: "Name" },
     { key: "email", lable: "Email" },
     { key: "role", lable: "Role" },
+    {key:"ChangeRole" , lable:"ChangeRole" , 
+    render:(row)=>(
+        <button  onClick={(e)=>handleRolls(row._id,row.role==="user"?"admin":"user")}>{row.role==='user'?"Make Admin":"Make User"}</button>
+    )
+    },
     {key:"action" , lable:"Action" , 
     render:(row)=>(
         <button  onClick={(e)=>handleDelete(row._id)}>Delete</button>
     )
     }
   ];
+
+
+  const handleRolls= async (userid,role)=>{
+    console.log("role from change Role..:-",role)
+        const result = await Swal.fire({
+        title: 'Are you sure?',
+        text: "You want change role.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes!'
+      });
+
+      if(result.isConfirmed){
+        try {
+          const token= JSON.parse(localStorage.getItem('token'))
+          const res= await fetch(`http://localhost:5000/auth/changerole/${userid}`,{
+            method:"PUT",
+            headers:{
+                 'content-type':'application/json',
+                  authorization:`Bearer ${token}`
+            },
+            body:JSON.stringify({role})
+          });
+           const result= await res.json();
+           if(result.success){
+            showAlert("success",result.message);
+           }
+        } catch (error) {
+          console.log(error)
+          showAlert('error',result.message)
+        }
+      }
+  }
 
   const handleDelete= async (userid)=>{
      const result = await Swal.fire({

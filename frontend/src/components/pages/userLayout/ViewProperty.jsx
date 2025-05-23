@@ -31,12 +31,6 @@ function ViewProperty() {
     ];
   },[])
 
-  //   useEffect(()=>{
-  //     if(!state.property_id ){
-  //          Navigator("/home")
-  //     }
-  //   },[])
-
   useEffect(() => {
     const getproperty = async () => {
       const token = JSON.parse(localStorage.getItem("token") || "");
@@ -67,12 +61,10 @@ function ViewProperty() {
   }, [property.posted_at]);
 
   const controller = (num) => {
-    // console.log("num inside function", num);
     setslidenum((prev) => prev + num);
   };
   
   const slideshow = useCallback((num)=>{
-    // console.log("inside slideshow:-",num)
     let slides =images;
 
     if (num === slides?.length-1) {
@@ -116,19 +108,21 @@ function ViewProperty() {
 
   return (
     <>
-      <section className="view-property">
+        <section className="view-property">
+    { 
+      state.admin && state.admin === true?<div>
+        <button
+              class="btn-goback-admin"
+              onClick={() => window.history.back()}
+              >
+              ← Go Back
+            </button>
+      </div>:""
+    }
         <h1 className="heading">Property Details</h1>
         <div className="details">
           <div className="slide-container">
-            {/* {property.images &&
-              property.images.map((item, index) => {
-                return (
-                  <div className="slide" key={index}>
-                    <img src={property.images[slidenum]} alt="" />
-                  </div>
-                )
-              })} */}
-
+           
             <div className="slide" >
                   <img src={slidenum!==-1 ? images[slidenum].src:images[images.length-1].src} alt={`image-`} />
             </div>
@@ -368,17 +362,21 @@ function ViewProperty() {
 
           <h3 className="title">Description</h3>
           <p className="description">this house is really beautifull.</p>
-          <div className="view-property-buttons">
+
+          {
+            state.admin && state.admin===true? ""
+            :<div className="view-property-buttons">
             <button
               className="btn-goback"
               onClick={() => window.history.back()}
-            >
+              >
               ← Go Back
             </button>
             <button className="btnsendenquery" onClick={()=>onRequiest(property._id, property.user._id)}>
                Send Enquiry
             </button>
           </div>
+            }
         </div>
       </section>
     </>
