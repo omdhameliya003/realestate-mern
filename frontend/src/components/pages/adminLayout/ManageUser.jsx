@@ -92,6 +92,7 @@ function ManageUser() {
 
       if(result.isConfirmed){
         try {
+          console.log(userid)
             const token= JSON.parse(localStorage.getItem('token'))
              const res= await fetch(`http://localhost:5000/auth/delete-user/${userid}`,{
                 method:"DELETE",

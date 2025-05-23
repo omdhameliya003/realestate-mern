@@ -6,12 +6,12 @@ import Footer from '../../common/Footer'
 function Dashboard() {
 
   const cardData=[
-    { id:1, title:"welcome!" , desc:"om", btntext:"update profile" , link:"/updateProfile"},
-    {id:2, title:"filter search" , desc:"search your dream property", btntext:"serch now" ,link:"/filterSearch"},
-    {id:3, title:0 , desc:"properties listed", btntext:"view all my listings",link:"/myListing"},
-    {id:4, title:0 , desc:"request received", btntext:"view received requests",link:"/requiestReceived"},
-    { id:5, title:0 , desc:"requests sent", btntext:"view your requests",link:"/requiestSent"},
-    {id:6, title:0 , desc:"properties saved", btntext:"view saved propertis",link:"/saveProperty"}, 
+    { id:1, title:"welcome!" , desc:"om", btntext:"update profile" , link:"/user/updateProfile"},
+    {id:2, title:"filter search" , desc:"search your dream property", btntext:"serch now" ,link:"/user/filterSearch"},
+    {id:3, title:0 , desc:"properties listed", btntext:"view all my listings",link:"/user/myListing"},
+    {id:4, title:0 , desc:"request received", btntext:"view received requests",link:"/user/requiestReceived"},
+    { id:5, title:0 , desc:"requests sent", btntext:"view your requests",link:"/user/requiestSent"},
+    {id:6, title:0 , desc:"properties saved", btntext:"view saved propertis",link:"/user/saveProperty"}, 
 ]
 
  const [LodingPage,setLodingPage]= useState(true);
@@ -22,8 +22,8 @@ useEffect(()=>{
   async function getdashboardData(){
     try {
 
-      const token = JSON.parse(localStorage.getItem("token") || "");
-      const user_id = JSON.parse(localStorage.getItem("user_id") || "");
+      const token = JSON.parse(localStorage.getItem("token"));
+      const user_id = JSON.parse(localStorage.getItem("user_id"));
 
       const [userInfo, myProperty,PropertySaved, requiestSent, requiestRecieved] = await Promise.all(
         [

@@ -3,6 +3,7 @@ import "./Form.css";
 import "./Login-Register.css"
 import { FaRegEye } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { useAlert } from '../../common/AlertProvider';
 
 function Ragister() {
   const [formData,setFormData]=useState({
@@ -16,6 +17,8 @@ function Ragister() {
   });
   const [errors,setErrors]=useState({})
   const [showpass,setShowpass]=useState(false);
+
+  const {showAlert}= useAlert();
   const handleChange=(e)=>{
     const {name, value}=e.target;
     setFormData((pre)=>({...pre,[name]:value}))
@@ -132,7 +135,7 @@ function Ragister() {
         console.log(result);
 
         if (result.success) {
-          alert("Registration successful!");
+          showAlert("success", result.message)
           setFormData({
             fname: '',
             lname: '',
@@ -143,19 +146,14 @@ function Ragister() {
             conpass: '',
           });
         } else {
-          alert(result.message || "Registration failed.");
+          showAlert("error",result.message)
           validation(); 
         }
-
       } catch (error) {
-
         console.error("Error:", error);
-        alert("Something went wrong.");
+        showAlert("error","something went wrong..")
       }
-      
-
     }
-
   }
 
   return (

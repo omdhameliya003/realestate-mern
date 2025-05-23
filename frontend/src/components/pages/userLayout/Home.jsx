@@ -42,8 +42,6 @@ function Home() {
    },[properties])
 
     const onRequiest= async(property_id,owner_id)=>{
-    console.log("property_id:-",property_id);
-    console.log("owner_id:-",owner_id)
     const token= JSON.parse(localStorage.getItem("token")||"");
     const user_id= JSON.parse(localStorage.getItem("user_id")||"");
     console.log("user_id:-",user_id);
@@ -77,7 +75,7 @@ function Home() {
        <div className="listing-container">
        <h2>Latest Listing</h2>
       {
-       properties && properties.slice(-1).map((item,index)=>{
+       properties && properties.slice(0,1).map((item,index)=>{
         return <PropertyCard  cardDetail={item} key={index} propertydata={item}  onSave={()=>toggleSave(item._id)} viewProperty={() => viewProperty(item._id)}
          onRequiest={()=>onRequiest(item._id,item.user._id)}
         />
