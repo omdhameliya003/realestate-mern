@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "6802296ca73d812aec00579c"
+  },
+  "user_id": "USR_1767",
+  "fname": "vishal",
+  "lname": "botadara",
+  "age": 20,
+  "email": "vishal@gmail.com",
+  "mobile": 9876543213,
+  "password": "$2b$08$dOEE0T/zEAoLgeGlzVcIK.Tmd6U9mjm2U5yZnIBxsC946F88Iv6mq",
+  "createdAt": {
+    "$date": "2025-04-18T10:29:00.295Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T09:20:38.604Z"
+  },
+  "role": "admin"
+},
+{
+  "_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "user_id": "USR_7428",
+  "fname": "om",
+  "lname": "patel",
+  "age": 21,
+  "email": "ompatel@gmail.com",
+  "mobile": 9313739002,
+  "password": "$2b$08$w41mQ94FIKeGWDX1xq9BieAZg.j9PXSt0XFQ.vzZfAiGkU9avoOtO",
+  "createdAt": {
+    "$date": "2025-04-18T11:01:17.993Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-22T10:39:53.354Z"
+  },
+  "role": "user"
+},
+{
+  "_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "user_id": "USR_7146",
+  "fname": "kamlesh",
+  "lname": "baladaniya",
+  "age": 21,
+  "email": "omdhameliya991@gmail.com",
+  "mobile": 8765432123,
+  "password": "$2b$10$z5.K5kg6FNBiBReQy6fDheLIu4lQ6.Ew5J4HOiLbx8wzsmx5XTHke",
+  "role": "user",
+  "createdAt": {
+    "$date": "2025-05-23T07:23:24.514Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-23T08:55:00.764Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "user_id": "USR_4917",
+  "fname": "rohit",
+  "lname": "sharma",
+  "age": 38,
+  "email": "rohit@gmail.com",
+  "mobile": 9876543212,
+  "password": "$2b$08$6Ygqv0uNBMtn2MK7dvjanuTMk5N184kzrHhVz7vTWxkU2mfLK9URe",
+  "role": "user",
+  "createdAt": {
+    "$date": "2025-05-26T07:23:06.641Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:23:06.641Z"
+  }
+}]

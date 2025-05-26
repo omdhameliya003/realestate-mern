@@ -1,0 +1,95 @@
+[{
+  "_id": {
+    "$oid": "6834115520ea96dc425be8a4"
+  },
+  "property_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T06:59:33.959Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T06:59:33.959Z"
+  },
+  "savedProperty_id": 126,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834129420ea96dc425be8cd"
+  },
+  "property_id": {
+    "$oid": "683410c020ea96dc425be878"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:04:52.102Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:04:52.102Z"
+  },
+  "savedProperty_id": 127,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834165220ea96dc425be9a4"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:20:50.700Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:20:50.700Z"
+  },
+  "savedProperty_id": 128,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834174320ea96dc425be9f3"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:24:51.530Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:24:51.530Z"
+  },
+  "savedProperty_id": 129,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834175c20ea96dc425bea08"
+  },
+  "property_id": {
+    "$oid": "68340f8a20ea96dc425be86f"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:25:16.398Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:25:16.398Z"
+  },
+  "savedProperty_id": 130,
+  "__v": 0
+}]

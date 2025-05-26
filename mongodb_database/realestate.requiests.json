@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "6834115e20ea96dc425be8aa"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "owner_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T06:59:42.699Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T06:59:42.699Z"
+  },
+  "requiest_id": 21,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834129920ea96dc425be8d3"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "owner_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "683410c020ea96dc425be878"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:04:57.318Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:04:57.318Z"
+  },
+  "requiest_id": 22,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834162720ea96dc425be98d"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "owner_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:20:07.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:20:07.794Z"
+  },
+  "requiest_id": 23,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834173820ea96dc425be9e5"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "owner_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:24:40.599Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:24:40.599Z"
+  },
+  "requiest_id": 24,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834179f20ea96dc425bea1f"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "owner_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "68340f8a20ea96dc425be86f"
+  },
+  "createdAt": {
+    "$date": "2025-05-26T07:26:23.821Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:26:23.821Z"
+  },
+  "requiest_id": 25,
+  "__v": 0
+}]

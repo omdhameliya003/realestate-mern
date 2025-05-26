@@ -1,0 +1,334 @@
+[{
+  "_id": {
+    "$oid": "68340aef20ea96dc425be83f"
+  },
+  "property_name": "New Velly",
+  "type": "house",
+  "offer": "sell",
+  "price": 14000000,
+  "deposite": 800000,
+  "address": "210 new velly near sudama chowk",
+  "city": "surat",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 2,
+  "bedroom": 2,
+  "bathroom": 2,
+  "balcony": 1,
+  "carpet": 198,
+  "age": 9,
+  "total_floor": 1,
+  "room_floor": 1,
+  "loan": "available",
+  "description": "this house is fully furnished and have all facilities in near area.",
+  "amities": {
+    "lift": "no",
+    "security_guard": "yes",
+    "play_ground": "yes",
+    "garden": "yes",
+    "water_supply": "yes",
+    "power_backup": "yes",
+    "fire_security": "no",
+    "parking_area": "yes",
+    "gym": "yes",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241130/propertyImage/nxhvhcb8spgbujhchbop.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241130/propertyImage/j5wiyvlrr8zoeetrpsft.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241131/propertyImage/u4c2qgmjdrzhdyqrgtny.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241133/propertyImage/sosol8hwylus0ejqtujw.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241132/propertyImage/yaymimypdd01ihds3dpf.jpg"
+  ],
+  "user": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T06:32:15.449Z"
+  },
+  "property_id": 14,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "property_name": "Sweet Hewen",
+  "type": "flat",
+  "offer": "sell",
+  "price": 16000000,
+  "deposite": 1000000,
+  "address": "306 rachna near gayatry",
+  "city": "surat",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 2,
+  "bedroom": 2,
+  "bathroom": 1,
+  "balcony": 1,
+  "carpet": 210,
+  "age": 13,
+  "total_floor": 12,
+  "room_floor": 3,
+  "loan": "available",
+  "description": "Spacious 2BHK flat with modern interiors, prime location, and ideal comfort for family living.",
+  "amities": {
+    "lift": "yes",
+    "security_guard": "yes",
+    "play_ground": "yes",
+    "garden": "yes",
+    "water_supply": "yes",
+    "power_backup": "yes",
+    "fire_security": "yes",
+    "parking_area": "yes",
+    "gym": "yes",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241508/propertyImage/lkmabqgifoqk6ac6mzyr.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241509/propertyImage/ymxgu4oppl8kwrbuanj9.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241514/propertyImage/oiwp9qjbgtqlkb7iqwak.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241510/propertyImage/os3ueaadcz4njpcqh1mj.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748241514/propertyImage/c5hye2wk5uxyfsswazjm.jpg"
+  ],
+  "user": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T06:38:36.620Z"
+  },
+  "property_id": 15,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68340f8a20ea96dc425be86f"
+  },
+  "property_name": "Green Squere",
+  "type": "office",
+  "offer": "rent",
+  "price": 28000,
+  "deposite": 14000,
+  "address": "404 silver point near kiran chowk",
+  "city": "ahmedabad",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 1,
+  "bedroom": 0,
+  "bathroom": 1,
+  "balcony": 1,
+  "carpet": 240,
+  "age": 10,
+  "total_floor": 4,
+  "room_floor": 4,
+  "loan": "not available",
+  "description": "this office is complatly furnished and perfect for IT company setup.",
+  "amities": {
+    "lift": "yes",
+    "security_guard": "yes",
+    "play_ground": "no",
+    "garden": "no",
+    "water_supply": "yes",
+    "power_backup": "yes",
+    "fire_security": "no",
+    "parking_area": "yes",
+    "gym": "yes",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242312/propertyImage/wcfuf3hipwne5dfcezuo.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242311/propertyImage/pc3gekwdv7veawtpswyp.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242313/propertyImage/bj6vzvjptrah1zo4t7bx.jpg"
+  ],
+  "user": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T06:51:54.187Z"
+  },
+  "property_id": 16,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683410c020ea96dc425be878"
+  },
+  "property_name": "Anand Dhara",
+  "type": "house",
+  "offer": "rent",
+  "price": 22000,
+  "deposite": 10000,
+  "address": "126 anand dhara  near talav mota varachha",
+  "city": "surat",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 2,
+  "bedroom": 2,
+  "bathroom": 1,
+  "balcony": 1,
+  "carpet": 208,
+  "age": 7,
+  "total_floor": 1,
+  "room_floor": 1,
+  "loan": "not available",
+  "description": "this house is ferfect choice for join family and all facilities fullfiled in near area.",
+  "amities": {
+    "lift": "no",
+    "security_guard": "yes",
+    "play_ground": "yes",
+    "garden": "yes",
+    "water_supply": "yes",
+    "power_backup": "no",
+    "fire_security": "no",
+    "parking_area": "yes",
+    "gym": "no",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242620/propertyImage/pj71xs7ygetscqhgnqaz.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242621/propertyImage/k0nttzd1o9relurzx4ib.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242622/propertyImage/r5o2toeomyw7cz8odskv.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242623/propertyImage/veaqv44qfmcay8mncfau.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748242622/propertyImage/j6abvrzdfwwlbyly5ulk.jpg"
+  ],
+  "user": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T06:57:04.106Z"
+  },
+  "property_id": 17,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "property_name": "Raj Hans ",
+  "type": "flat",
+  "offer": "rent",
+  "price": 28000,
+  "deposite": 15000,
+  "address": "501 raj hans near ruhh palace ",
+  "city": "bhavnagar",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 2,
+  "bedroom": 2,
+  "bathroom": 1,
+  "balcony": 1,
+  "carpet": 260,
+  "age": 6,
+  "total_floor": 12,
+  "room_floor": 5,
+  "loan": "not available",
+  "description": "this flat is complatly ready to move and have all major facility and also only profational persons live in this appartment.",
+  "amities": {
+    "lift": "yes",
+    "security_guard": "yes",
+    "play_ground": "yes",
+    "garden": "yes",
+    "water_supply": "yes",
+    "power_backup": "yes",
+    "fire_security": "yes",
+    "parking_area": "yes",
+    "gym": "yes",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748243722/propertyImage/pyuhrkyjr0lb7geyp7ha.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748243720/propertyImage/eeqfa10jfzowoj9pdk1q.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748243723/propertyImage/euntxlmf8ijaoeozszsh.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748243723/propertyImage/szn3xktgpzaksixoauel.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748243724/propertyImage/xbbhav1x8vr4acznohve.jpg"
+  ],
+  "user": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T07:15:25.054Z"
+  },
+  "property_id": 18,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834196720ea96dc425bea24"
+  },
+  "property_name": "Golden Nest",
+  "type": "house",
+  "offer": "sell",
+  "price": 12000000,
+  "deposite": 600000,
+  "address": "99  ramvatika near rangoli chokdi",
+  "city": "vadodra",
+  "state": "gujarat",
+  "status": "ready to move",
+  "furnished": "furnished",
+  "bhk": 3,
+  "bedroom": 3,
+  "bathroom": 3,
+  "balcony": 1,
+  "carpet": 280,
+  "age": 5,
+  "total_floor": 1,
+  "room_floor": 1,
+  "loan": "available",
+  "description": "this house have 3 bedroom 1 at ground floor and 2 at first floor and perfect for join family. and also all core facilities cover.",
+  "amities": {
+    "lift": "no",
+    "security_guard": "yes",
+    "play_ground": "yes",
+    "garden": "yes",
+    "water_supply": "yes",
+    "power_backup": "yes",
+    "fire_security": "no",
+    "parking_area": "yes",
+    "gym": "yes",
+    "cctv_cameras": "yes",
+    "shopping_mall": "yes",
+    "hospital": "yes",
+    "school": "yes",
+    "market_area": "yes"
+  },
+  "images": [
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748244835/propertyImage/urqlwtxmvqm9ddlmi2ck.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748244836/propertyImage/wndnmcyj7egt6p7rcveg.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748244836/propertyImage/tezlwbgwlxnrtg51vwwg.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748244839/propertyImage/iroamztyv9bsvlmvcx9a.jpg",
+    "https://res.cloudinary.com/dpfghxhjc/image/upload/v1748244837/propertyImage/h10qwaxlpsym5ccdcjsb.jpg"
+  ],
+  "user": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "posted_at": {
+    "$date": "2025-05-26T07:33:59.778Z"
+  },
+  "property_id": 19,
+  "__v": 0
+}]

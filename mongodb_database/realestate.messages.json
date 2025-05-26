@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "682727a2627e65d7b15ca524"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "email": "ompatel@gmail.com",
+  "message": "i need to rent one house but not contact number available temparory of property owner how to contanct him.",
+  "createdAt": {
+    "$date": "2025-05-16T11:55:14.495Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-16T11:55:14.495Z"
+  },
+  "message_id": 5,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682727d6627e65d7b15ca52a"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "email": "ompatel@gmail.com",
+  "message": "hello, good morning admin.",
+  "createdAt": {
+    "$date": "2025-05-16T11:56:06.505Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-16T11:56:06.505Z"
+  },
+  "message_id": 6,
+  "__v": 0
+}]

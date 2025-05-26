@@ -1,0 +1,220 @@
+[{
+  "_id": {
+    "$oid": "6834113420ea96dc425be890"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "commentMessage": "wow this flat give fill like really hewen but it is not in my budget.",
+  "createdAt": {
+    "$date": "2025-05-26T06:59:00.472Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T06:59:00.472Z"
+  },
+  "comment_id": 25,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834114a20ea96dc425be897"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "commentMessage": "but really flat is super duper.",
+  "createdAt": {
+    "$date": "2025-05-26T06:59:22.957Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T06:59:22.957Z"
+  },
+  "comment_id": 26,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834118f20ea96dc425be8b2"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "68340f8a20ea96dc425be86f"
+  },
+  "commentMessage": "rent this office as fast as other wise you miss oppotunity.",
+  "createdAt": {
+    "$date": "2025-05-26T07:00:31.043Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:00:31.043Z"
+  },
+  "comment_id": 27,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683412cf20ea96dc425be8e3"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "683410c020ea96dc425be878"
+  },
+  "commentMessage": "this house is really beautifull and i need to rent it.",
+  "createdAt": {
+    "$date": "2025-05-26T07:05:51.992Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:05:51.992Z"
+  },
+  "comment_id": 28,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683412ec20ea96dc425be8ea"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "683410c020ea96dc425be878"
+  },
+  "commentMessage": "i can rent it in 20000 rupees.",
+  "createdAt": {
+    "$date": "2025-05-26T07:06:20.828Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:06:20.828Z"
+  },
+  "comment_id": 29,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834136620ea96dc425be931"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "68340c6c20ea96dc425be850"
+  },
+  "commentMessage": "thanks brother this is my flat and i also love it but for personal reason i need to sell it.",
+  "createdAt": {
+    "$date": "2025-05-26T07:08:22.172Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:08:22.172Z"
+  },
+  "comment_id": 30,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834156220ea96dc425be952"
+  },
+  "user_id": {
+    "$oid": "680230fd516c2b67841a157c"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "commentMessage": "don't miss opportunity in this rent and in this area like a 50% sale.",
+  "createdAt": {
+    "$date": "2025-05-26T07:16:50.170Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:16:50.170Z"
+  },
+  "comment_id": 31,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834160d20ea96dc425be978"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "commentMessage": "ohh one more flat you posted how many flat or house have you",
+  "createdAt": {
+    "$date": "2025-05-26T07:19:41.980Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:19:41.980Z"
+  },
+  "comment_id": 32,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834164f20ea96dc425be997"
+  },
+  "user_id": {
+    "$oid": "6830226c317cdd473860bf41"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "commentMessage": "or this one in my budget and i need to rent this \"aalishan\" flat.",
+  "createdAt": {
+    "$date": "2025-05-26T07:20:47.777Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:20:47.777Z"
+  },
+  "comment_id": 33,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834173320ea96dc425be9d8"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "property_id": {
+    "$oid": "6834150d20ea96dc425be945"
+  },
+  "commentMessage": "really this flat is \"lajavab\" not  only \"aalishan\".",
+  "createdAt": {
+    "$date": "2025-05-26T07:24:35.627Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:24:35.627Z"
+  },
+  "comment_id": 34,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6834179620ea96dc425bea12"
+  },
+  "user_id": {
+    "$oid": "683416da20ea96dc425be9ca"
+  },
+  "property_id": {
+    "$oid": "68340f8a20ea96dc425be86f"
+  },
+  "commentMessage": "yes i need to rent this office for my IT setup, please don't give it anyone.",
+  "createdAt": {
+    "$date": "2025-05-26T07:26:14.261Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-26T07:26:14.261Z"
+  },
+  "comment_id": 35,
+  "__v": 0
+}]
