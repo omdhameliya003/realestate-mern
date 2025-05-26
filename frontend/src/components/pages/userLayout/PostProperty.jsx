@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import InputFild from "../../ui/InputFild";
 import SelectFiel from "../../ui/SelectFiel";
 import CheckBox from "../../ui/CheckBox";
@@ -13,6 +13,8 @@ import { useAlert } from "../../common/AlertProvider";
 function PostProperty() {
   const { state } = useLocation();
   const {showAlert}= useAlert();
+  const formRef= useRef();
+  const isEdit = Boolean(state?.property_id);
     // useEffect(()=>{
   //     const auth= JSON.parse(localStorage.getItem("user_id"));
   //     if(!auth || auth===""){
@@ -64,6 +66,8 @@ function PostProperty() {
     image_05:null,
   };
   const [formData, setformData] = useState(initialformData);
+  const [updatedImages, setUpdatedImages] = useState({});
+
 
   const [type, setType] = useState();
 
@@ -134,6 +138,7 @@ function PostProperty() {
         ...prev,
         [name]: files[0],
       }));
+      setUpdatedImages((prev) => ({ ...prev, [name]: true }));
     } else {
       setformData((prev) => ({
         ...prev,
@@ -141,23 +146,32 @@ function PostProperty() {
       }));
     }
   }; 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const filedata= new FormData();   
-    for (const key in formData) {
-      if (formData[key]) {
-        if (typeof formData[key] === 'object' && !(formData[key] instanceof File)) {
-          filedata.append(key, JSON.stringify(formData[key]));
-        } else {
-          filedata.append(key, formData[key]);
-        }
-      }
-    }
+    const filedata= new FormData();
+
+for (const key in formData) {
+  const value = formData[key];
+
+  if (value instanceof File) {
+    filedata.append(key, value);
+  } else if (typeof value === 'object' && value !== null) {
+    filedata.append(key, JSON.stringify(value));
+  } else if (value !== undefined && value !== null) {
+    filedata.append(key, value);
+  }
+}
     
     try {
       const token = JSON.parse(localStorage.getItem("token") || "");
-      const res = await fetch("http://localhost:5000/property", {
-        method: "POST",
+       const url = state?.property_id
+      ? `http://localhost:5000/property/${state.property_id}`
+      : "http://localhost:5000/property";
+    const method = state?.property_id ? "PUT" : "POST";
+
+      const res = await fetch(url, {
+        method,
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -165,10 +179,12 @@ function PostProperty() {
       });
       const result = await res.json();
       if (result.success) {
-        showAlert("success","property posted successfully.")
+        showAlert("success", `Property ${state?.property_id ? "updated" : "posted"} successfully.`);
+        formRef.current.reset();
         setformData({ ...initialformData });
+        setUpdatedImages({});
       } else {
-        showAlert("error","postproperty failed.")
+        showAlert("error", `${state?.property_id ? "Update" : "Post"} failed.`);
       }
     } catch (error) {
       showAlert("error","Something went wrong,server error")
@@ -293,13 +309,13 @@ function PostProperty() {
     { name: "school", lable: "school" },
     { name: "market_area", lable: "market area" },
   ];
-console.log("formdata:-",formData)
+
   return (
     <>
     <Navbar/>
     <div className="form-container property-form-container">
       <div className="my-form" id="property-form">
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
+        <form  ref={formRef} onSubmit={handleSubmit} encType="multipart/form-data">
           <h3>Property Details</h3>
 
           <InputFild
@@ -488,13 +504,15 @@ console.log("formdata:-",formData)
 
           <div className="checkbox">
             <div>
-              <CheckBox facilites={amities1} onChange={handleChange} propertydata={formData} />
+              <CheckBox facilites={amities1} onChange={handleChange}  amities={formData.amities} />
             </div>
             <div>
-              <CheckBox facilites={amities2} onChange={handleChange}  propertydata={formData} />
+              <CheckBox facilites={amities2} onChange={handleChange}  amities={formData.amities} />
             </div>
           </div>
-
+              {formData.image_01 && typeof formData.image_01 === "string" && (
+                 <img src={formData.image_01} alt="preview" style={{ height: 80 }} />
+               )} 
           <InputFild
             lable="image 01"
             type="file"
@@ -502,8 +520,11 @@ console.log("formdata:-",formData)
             accept="image/*"
             required
             onChange={handleChange}
-          />
+            />
           <div className="property-flex">
+            {formData.image_02 && typeof formData.image_02 === "string" && (
+                   <img src={formData.image_02} alt="preview" style={{ height: 80 }} />
+            )}
             <InputFild
               lable="image 02"
               type="file"
@@ -511,6 +532,9 @@ console.log("formdata:-",formData)
               accept="image/*"
               onChange={handleChange}
             />
+            {formData.image_03 && typeof formData.image_03 === "string" && (
+  <img src={formData.image_03} alt="preview" style={{ height: 80 }} />
+)}
             <InputFild
               lable="image 03"
               type="file"
@@ -518,6 +542,9 @@ console.log("formdata:-",formData)
               accept="image/*"
               onChange={handleChange}
             />
+            {formData.image_04 && typeof formData.image_04 === "string" && (
+               <img src={formData.image_04} alt="preview" style={{ height: 80 }} />
+            )}
             <InputFild
               lable="image 04"
               type="file"
@@ -525,7 +552,9 @@ console.log("formdata:-",formData)
               accept="image/*"
               onChange={handleChange}
             />
-
+            {formData.image_05 && typeof formData.image_05 === "string" && (
+               <img src={formData.image_01} alt="preview" style={{ height: 80 }} />
+             )}
             <InputFild
               lable="image 05"
               type="file"
@@ -536,7 +565,7 @@ console.log("formdata:-",formData)
           </div>
           <InputFild
             type="submit"
-            value="post property"
+            value={isEdit ? "Update Property" : "Post Property"}
             className="btn"
             name="post"
             onChange={handleChange}

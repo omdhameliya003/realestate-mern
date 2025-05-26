@@ -1,7 +1,7 @@
 
 const jwt=require("jsonwebtoken")
 
-module.exports=(req,res,next)=>{
+const verifyToken=(req,res,next)=>{
     const authheader=req.headers["authorization"];
 
     if(!authheader || !authheader.startsWith("Bearer ")){
@@ -18,3 +18,14 @@ module.exports=(req,res,next)=>{
         res.status(401).json({message:"unauthorized :invalid token."})
     }
 }
+
+const verifyRoles = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user?.role)) {
+      return res.status(403).json({ message: "Access denied" });
+    }
+    next();
+  };
+};
+
+module.exports={verifyToken,verifyRoles}

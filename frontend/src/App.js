@@ -30,6 +30,7 @@ import ManageProperty from './components/pages/adminLayout/ManageProperty';
 import MessageReply from './components/pages/adminLayout/MessageReply';
 import UnauthorizedPage from './components/pages/userLayout/UnauthorizedPage';
 import PageNotFound from './components/pages/userLayout/404-Page';
+import ForgotPassword from './components/pages/userLayout/ForgotPassword';
 function App() {
   return (
     <AuthProvider>
@@ -40,7 +41,7 @@ function App() {
     <Routes>
       <Route path='/register' element={< Register/>}/>
       <Route path='/' element={< Login/>}/>
-      <Route path='/forgot-password' element=""/>
+      <Route path='/forgot-password' element={<ForgotPassword/>}/>
       <Route path='/user/home' element= { <ProtectedRoute role="user">< Home/></ProtectedRoute> }/>
       <Route path='/user/dashbord' element={<ProtectedRoute role="user"><Dashboard/></ProtectedRoute>}/>
       <Route path='/user/postProperty' element={<ProtectedRoute role="user">< PostProperty/></ProtectedRoute>}/>

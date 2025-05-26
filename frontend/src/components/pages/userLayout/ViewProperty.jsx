@@ -21,15 +21,15 @@ function ViewProperty() {
 
   const {showAlert}= useAlert();
 
- const images= useMemo(()=>{
-   return [
-      { src: "images/house/house-1.jpeg" },
-      { src: "images/house/house-2.jpeg" },
-      { src: "images/house/house-3.jpeg" },
-      { src: "images/house/house-4.jpg" },
-      { src: "images/house/house-5.jpeg" },
-    ];
-  },[])
+//  const images= useMemo(()=>{
+//    return [
+//       { src: "images/house/house-1.jpeg" },
+//       { src: "images/house/house-2.jpeg" },
+//       { src: "images/house/house-3.jpeg" },
+//       { src: "images/house/house-4.jpg" },
+//       { src: "images/house/house-5.jpeg" },
+//     ];
+//   },[])
 
   useEffect(() => {
     const getproperty = async () => {
@@ -61,22 +61,19 @@ function ViewProperty() {
   }, [property.posted_at]);
 
   const controller = (num) => {
-    setslidenum((prev) => prev + num);
+     let slides = property?.images || [];
+    setslidenum((prev) => {
+      let newIndex = prev + num;
+
+    if (newIndex >= slides.length) return 0;     
+    if (newIndex < 0) return slides.length - 1;      
+    return newIndex;
+    });
   };
   
   const slideshow = useCallback((num)=>{
-    let slides =images;
-
-    if (num === slides?.length-1) {
-      setslidenum(0);
-      num = 0;
-    }
-
-    if (num < 0) {
-      setslidenum(slides.length -2 );
-      num = slides.length -2 ;
-    }
-  },[images]);
+    
+  },[]);
 
   useEffect(()=>{
     slideshow(slidenum);
@@ -122,11 +119,14 @@ function ViewProperty() {
         <h1 className="heading">Property Details</h1>
         <div className="details">
           <div className="slide-container">
-           
-            <div className="slide" >
-                  <img src={slidenum!==-1 ? images[slidenum].src:images[images.length-1].src} alt={`image-`} />
+           {
+            property?.images?.length>0 && (
+               <div className="slide" >
+                  <img src={slidenum!==-1 ? property?.images[slidenum]:property?.images[property?.images.length-1]} alt={`image-`} />
             </div>
-
+            )
+           }
+           
             {property?.images?.length > 1 ? (
               <>
                 <span className="arrow prev" onClick={() => controller(-1)}>

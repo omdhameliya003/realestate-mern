@@ -2,10 +2,10 @@ const express = require("express")
 const router= express.Router()
 const Comment= require("../models/Comment")
 const Property=require("../models/Property")
-const authmiddleware=require("../middleware/authmiddleware")
+const {verifyToken,verifyRoles}=require("../middleware/authmiddleware")
 
 
-router.post('/comment',authmiddleware, async(req,res)=>{
+router.post('/comment',verifyToken,verifyRoles("user"), async(req,res)=>{
     try {  
 
     const {property_id,user_id,commentMessage}=req.body
@@ -25,7 +25,7 @@ router.post('/comment',authmiddleware, async(req,res)=>{
 }
 })
 
-router.get('/comment/:property_id',authmiddleware, async (req,res)=>{
+router.get('/comment/:property_id',verifyToken,verifyRoles("user"), async (req,res)=>{
     
     try {
         const {property_id}=req.params;

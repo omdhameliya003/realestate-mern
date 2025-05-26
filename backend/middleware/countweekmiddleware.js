@@ -1,14 +1,10 @@
+const moment = require('moment-timezone');
+
 const countweekmiddleware = () => {
-  const today = new Date();
-  const dayOfWeek = today.getDay(); // 0 (Sunday) - 6 (Saturday)
+  const today = moment().tz('Asia/Kolkata');
 
-  const startOfWeek = new Date(today);
-  startOfWeek.setDate(today.getDate() - dayOfWeek);
-  startOfWeek.setHours(0, 0, 0, 0);
-
-  const endOfWeek = new Date(today);
-  endOfWeek.setDate(today.getDate() + (6 - dayOfWeek));
-  endOfWeek.setHours(23, 59, 59, 999);
+  const startOfWeek = today.clone().startOf('week').toDate(); // Sunday 00:00:00
+  const endOfWeek = today.clone().endOf('week').toDate();     // Saturday 23:59:59
 
   return { startOfWeek, endOfWeek };
 };

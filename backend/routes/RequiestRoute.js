@@ -3,9 +3,10 @@ const router= express.Router()
 const Requiest= require("../models/Requiest");
 const Property = require("../models/Property");
 const User = require("../models/User")
+const {verifyToken,verifyRoles}=require("../middleware/authmiddleware")
 
 
-router.post('/requiest', async(req,res)=>{
+router.post('/requiest',verifyToken,verifyRoles("user"), async(req,res)=>{
 
     try {
    const {property_id,owner_id,user_id}=req.body;
@@ -35,7 +36,7 @@ router.post('/requiest', async(req,res)=>{
     }
 })
 
-router.get('/requiest/sent/:user_id', async(req,res)=>{
+router.get('/requiest/sent/:user_id',verifyToken,verifyRoles("user"), async(req,res)=>{
     try {
         const {user_id}= req.params;
         const user= await User.find({_id:user_id});
@@ -54,7 +55,7 @@ router.get('/requiest/sent/:user_id', async(req,res)=>{
     }  
 })
 
-router.get('/requiest/received/:Owner_id', async(req,res)=>{
+router.get('/requiest/received/:Owner_id',verifyToken,verifyRoles("user"), async(req,res)=>{
     try {
         const {Owner_id}= req.params;
         const user= await User.find({_id:Owner_id});
@@ -73,7 +74,7 @@ router.get('/requiest/received/:Owner_id', async(req,res)=>{
     }  
 })
 
-router.delete('/requiest/:requiest_id', async(req,res)=>{
+router.delete('/requiest/:requiest_id',verifyToken,verifyRoles("user"), async(req,res)=>{
     try {
     const {requiest_id}= req.params;
 

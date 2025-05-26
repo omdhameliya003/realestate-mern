@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import InputFild from '../../ui/InputFild';
 import SelectFiel from '../../ui/SelectFiel';
 import "./Form.css"
+import "./PostProperty.css"
 import Footer from '../../common/Footer';
 import Navbar from '../../common/Navbar';
 import { useAlert } from '../../common/AlertProvider';
@@ -73,9 +74,9 @@ function Filter() {
   return (
     <>
     <Navbar/>
-    <div className="form-container filter-form">
+    <div className="form-container filter-form-container">
       <div className="my-form " id="property-form">
-      <h3>filter your search</h3>
+      <h3>Filter Your Search</h3>
         <form onSubmit={handleSubmit} method="GET">
           <div className="property-flex">
           <InputFild

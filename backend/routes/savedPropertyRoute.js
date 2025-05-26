@@ -1,17 +1,18 @@
  const express=require("express")
  const router=express.Router()
- const authmiddleware= require("../middleware/authmiddleware")
+const {verifyToken,verifyRoles}=require("../middleware/authmiddleware")
  const Saved_Property= require("../models/Saved_Property")
  const Property=require("../models/Property")
  const User = require("../models/User")
 
 
 
- router.post('/saveProperty',authmiddleware,async(req,res)=>{
+ router.post('/saveProperty',verifyToken,verifyRoles("user"),async(req,res)=>{
     try {
     const { property_id,user_id } =req.body;
+    console.log(user_id)
     const property= await Property.findById(property_id);
-    const user= await User.findById(user_id)
+    const user= await User.findById({_id:user_id})
       if(!property){
         return res.status(404).json(" This propurty not found.")
        }
@@ -33,7 +34,7 @@
     }
 });
 
-router.post('/unsaveProperty',authmiddleware, async(req,res)=>{
+router.post('/unsaveProperty',verifyToken,verifyRoles("user"), async(req,res)=>{
   try {
     const { property_id,user_id } =req.body;
     const removeProperty= await Saved_Property.deleteOne({property_id:property_id,user_id:user_id});
@@ -48,7 +49,7 @@ router.post('/unsaveProperty',authmiddleware, async(req,res)=>{
 })
 
 
-router.get('/saveProperty/user/:user_id',authmiddleware,async(req,res)=>{
+router.get('/saveProperty/user/:user_id',verifyToken,verifyRoles("user"),async(req,res)=>{
 
     try {
         const {user_id} = req.params;

@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 function ManageProperty() {
   const [properties, setProperties] = useState("");
+  const [search, setSearch] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
+
   const {showAlert}=useAlert();
   const Navigate = useNavigate();
 
@@ -23,6 +26,7 @@ function ManageProperty() {
 
         const result =await res.json();
         setProperties(result.properties);
+        filteredData(result.properties)
       } catch (error) {
         console.log(error);
       }
@@ -30,7 +34,19 @@ function ManageProperty() {
     getProperties();
   },[]);
 
-  console.log("properties:-",properties);
+
+   useEffect(() => {
+    const timeout = setTimeout(() => {
+      const results = properties.filter((item) =>
+        item.property_name.toLowerCase().includes(search.toLowerCase())||
+        item.type.toLowerCase().includes(search.toLowerCase()) ||
+        item.city.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredData(results);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [search, properties]);
 
   const propertyTableColumn = [
     { key: "property_name", lable: "Propety Name" },
@@ -92,7 +108,8 @@ function ManageProperty() {
       <Sidebar/>
       <div className="content">
         <h2>All Properties</h2>
-        <AdminTable column={propertyTableColumn} limit={5} data={properties} />
+        <input type="text" id="search" placeholder="Search by City, Property name or Type" onChange={(e) => setSearch(e.target.value)} />
+        <AdminTable column={propertyTableColumn} limit={5} data={filteredData} />
       </div>
     </div>
   );

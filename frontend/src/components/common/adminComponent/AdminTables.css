@@ -66,16 +66,14 @@ table button a {
   margin-top: 5px;
 
 }
-
-/* @media screen and (max-width: 1150px) {
-    table{
-    overflow-x: auto;
-  }
+.content #search {
+  width: 100%;
+  max-width: 900px;
+  height: 40px;
+  background: rgb(248, 248, 255);
+  /* padding-left: 15px; */
 }
 
-@media screen and (max-width: 992px) {
-  table {
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-} */
+.content #search::placeholder {
+  text-transform: capitalize;
+}

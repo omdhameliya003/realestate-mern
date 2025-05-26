@@ -18,7 +18,7 @@ import { Link } from 'react-router-dom';
 const PropertyCard=React.memo(({propertydata,viewProperty,onSave,onRequiest})=> {
 
    const { savedProperties} = useSave();
-  const isSaved = savedProperties.includes(propertydata._id);
+  const isSaved = savedProperties?.includes(propertydata._id);
 
   const dateObj = new Date(propertydata.posted_at);
 const formattedDate = dateObj.toLocaleString('en-GB', {

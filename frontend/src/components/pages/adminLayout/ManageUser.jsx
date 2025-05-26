@@ -3,9 +3,12 @@ import AdminTable from "../../common/adminComponent/AdminTable";
 import Sidebar from "../../common/adminComponent/Sidebar";
 import Swal from "sweetalert2";
 import { useAlert } from './../../common/AlertProvider';
+import "./AdminDashBoard.css";
 
 function ManageUser() {
     const [alluser,setallUser]=useState();
+    const [search, setSearch] = useState("");
+    const [filteredUser,setFilteredUsers]=useState();
     const {showAlert}=useAlert();
 
     useEffect(()=>{
@@ -20,12 +23,26 @@ function ManageUser() {
         });
         const result= await res.json();
         setallUser(result.allUser)
+        filteredUser(result.allUser)
         } catch (error) {
             console.log(error)
         }
     }
     getUsers();
     },[])
+
+    useEffect(() => {
+  const timeout = setTimeout(() => {
+    const results = alluser.filter((user) =>
+      user.user_id?.toLowerCase().includes(search.toLowerCase()) ||
+      user.name?.toLowerCase().includes(search.toLowerCase()) ||
+      user.email?.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredUsers(results);
+  }, 300);
+
+  return () => clearTimeout(timeout);
+}, [search, alluser]);
 
   const userTableColumn = [
     { key: "user_id", lable: "User Id" },
@@ -117,7 +134,8 @@ function ManageUser() {
         <Sidebar/>
       <div className="content">
         <h2>Manage Users</h2>
-        <AdminTable column={userTableColumn} data={alluser} />
+        <input type="text" id="search" placeholder="Search by ID, Name, or Email"  onChange={(e) => setSearch(e.target.value)} />
+        <AdminTable column={userTableColumn} data={filteredUser} />
       </div>
     </div>
   );

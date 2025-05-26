@@ -59,6 +59,7 @@
     border-radius: 6px;
     font-size: 18px;
     color: white;
+    cursor: pointer;
   }
   .field-password {
     position: relative;
@@ -85,9 +86,32 @@
     text-align: end;
     padding: 10px;
 }
+form .forgot-pass{
+  opacity: 0.6;
+  text-align: end;
+  padding: 10px;
+}
+.forgot-pass a{
+  color: #303030;
+}
+ .forgot-pass a:hover{
+  color: #007BFF;
+}
+form .login-not-account{
+  margin-top: 10px;
+}
 
 .error{
   color: red;
   text-align: start;
   padding-left: 10px;
+}
+
+.filter-form-container{
+   max-width: 1100px;
+    margin: 20px auto;
+    padding: 5px;
+}
+.filter-form-container h3{
+  font-size: 26px !important;
 }

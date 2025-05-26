@@ -6,35 +6,29 @@ const multer = require("multer");
 const path = require("path");
 const User = require("../models/User");
 const countweekmiddleware= require("../middleware/countweekmiddleware")
+const Saved_Property= require("../models/Saved_Property")
+const Comment=require("../models/Comment")
+const Requiest= require("../models/Requiest");
+const {uploadmultiple,deleteCloudinaryImage} = require("../middleware/fileuploads")
+const cloudinary= require("cloudinary").v2;
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads");
-  },
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//     cb(null, "uploads");  
+//   },
+//   filename: (req, file, cb) => {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
 
-  filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
-
-const upload = multer({ storage });
 
 router.post(
   "/property",
-  verifyToken,verifyRoles("user"),
-  upload.fields([
-    { name: "image_01", maxCount: 1 },
-    { name: "image_02", maxCount: 1 },
-    { name: "image_03", maxCount: 1 },
-    { name: "image_04", maxCount: 1 },
-    { name: "image_05", maxCount: 1 },
-  ]),
-  async (req, res) => {
+  verifyToken,verifyRoles("user"),uploadmultiple, async (req, res) => {
     try {
-      console.log(req.body.userId);
       const user = await User.findById(req.body.userId);
       if (!user) return res.status(404).json({ message: "User not found" });
       const imagearray = [];
@@ -139,6 +133,11 @@ router.post("/property/filter", verifyToken,verifyRoles("user"),async (req, res)
 router.delete("/property/:property_id", verifyToken,verifyRoles("user","admin"), async (req, res) => {
   try {
     const {property_id}= req.params;
+
+        await Comment.deleteMany({property_id:property_id})
+        await Requiest.deleteMany({property_id:property_id})
+        await Saved_Property.deleteMany({property_id:property_id})
+
     const deletedProperty = await Property.findByIdAndDelete({_id:property_id});
     if (deletedProperty) {
       res.status(200).json({ success: true, message: "Properety delated successfully" });
@@ -168,8 +167,83 @@ router.get("/property/:property_id",verifyToken,verifyRoles("user","admin"), asy
   }
 });
 
-router.put("/property/:property_id", async (req, res) => {
-  const { property_id } = req.params;
+router.put("/property/:propertyId",uploadmultiple, async (req, res) => {
+  
+  try {
+    const {propertyId} = req.params;
+    const existingProperty = await Property.findById(propertyId);
+
+    if (!existingProperty) {
+      return res.status(404).json({ success: false, message: "Property not found" });
+    }
+
+    const updatedData = { ...req.body };
+    
+   if (typeof updatedData.user === 'string') {
+  try {
+    const parsedUser = JSON.parse(updatedData.user);
+    updatedData.user = parsedUser._id; // extract only ObjectId
+  } catch (err) {
+    return res.status(400).json({ success: false, message: "Invalid user format" });
+  }
+} else if (typeof updatedData.user === 'object' && updatedData.user._id) {
+  updatedData.user = updatedData.user._id;
+} 
+
+     if (updatedData.amities && typeof updatedData.amities === "string") {
+      updatedData.amities = JSON.parse(updatedData.amities);
+    }
+
+    const imageFields = [
+      "image_01",
+      "image_02",
+      "image_03",
+      "image_04",
+      "image_05",
+    ];
+
+const newImages = [];
+const deletePromises = [];
+
+for (const field of imageFields) {
+  if (req.files && req.files[field] && req.files[field][0]) {
+    const file = req.files[field][0];
+    const newImageUrl = file.path || file.secure_url || file.url;
+
+    const index = imageFields.indexOf(field);
+    const oldImageUrl = existingProperty.images?.[index];
+
+    if (oldImageUrl && oldImageUrl !== newImageUrl) {
+      deletePromises.push(deleteCloudinaryImage(oldImageUrl));
+    }
+    newImages[index] = newImageUrl;
+  } else {
+    const index = imageFields.indexOf(field);
+    newImages[index] = existingProperty.images?.[index];
+  }
+}
+
+await Promise.all(deletePromises);
+
+updatedData.images = newImages;
+
+imageFields.forEach((field) => delete updatedData[field]);
+
+    const updatedProperty = await Property.findByIdAndUpdate(propertyId, updatedData, {
+      new: true,
+    });
+
+     if (!updatedProperty) {
+      return res.status(404).json({ success: false, message: "Property not found" });
+    }
+
+    
+    res.status(200).json({ success: true, message: "Property updated", property: updatedProperty });
+
+  } catch (err) {
+    console.error("Update failed:", err);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
 });
 
 router.get("/totalPropertyCount",verifyToken,verifyRoles("admin"), async (req, res) => {
@@ -237,18 +311,32 @@ router.get("/offer-summary", verifyToken,verifyRoles("admin"),async (req, res) =
 router.get('/weeklyListing-summary',verifyToken,verifyRoles("admin"), async (req, res) => {
   try {
    const { startOfWeek, endOfWeek } = countweekmiddleware();
+     const timezone = "Asia/Kolkata";
     const listings = await Property.aggregate([
       {
         $match: {
-          createdAt: { $gte: startOfWeek, $lte: endOfWeek }
-        }
+          posted_at: {
+            $gte: startOfWeek,
+            $lte: endOfWeek,
+          },
+        },
+      },
+      {
+        $addFields: {
+          dayOfWeek: {
+            $dayOfWeek: {
+              date: "$posted_at",
+              timezone: timezone,
+            },
+          },
+        },
       },
       {
         $group: {
-          _id: { $dayOfWeek: '$createdAt' },
-          total: { $sum: 1 }
-        }
-      }
+          _id: "$dayOfWeek",
+          total: { $sum: 1 },
+        },
+      },
     ]);
 
     const dayMap = {
@@ -274,7 +362,6 @@ router.get('/weeklyListing-summary',verifyToken,verifyRoles("admin"), async (req
     listings.forEach(({ _id, total }) => {
       weeklyData[dayMap[_id]] = total;
     });
-
     res.status(200).json({success:true , weeklyData});
   } catch (error) {
     console.error('Error fetching weekly listings:', error);
