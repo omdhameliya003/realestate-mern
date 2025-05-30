@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const dotenv=require("dotenv");
+dotenv.config();
 
-var conn = mongoose.connect("mongodb://localhost:27017/realestate", {
+var conn = mongoose.connect(process.env.MONGODB_URI,{
     useNewUrlParser: true,
     useUnifiedTopology: true
   });
@@ -8,3 +10,5 @@ var conn = mongoose.connect("mongodb://localhost:27017/realestate", {
 if(conn){
     console.log("connected..")
 }
+
+module.exports= conn;
