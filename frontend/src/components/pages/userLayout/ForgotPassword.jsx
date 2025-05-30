@@ -19,7 +19,7 @@ const ForgotPassword = () => {
   const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/auth/forgot-password', { 
+      const res = await fetch('https://wonder-property-backend.onrender.com/auth/forgot-password', { 
         method:"POST",
         headers:{
             "content-type":"application/json",
@@ -44,7 +44,7 @@ const ForgotPassword = () => {
   const verifyOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/auth/verify-otp', { 
+      const res = await fetch('https://wonder-property-backend.onrender.com/auth/verify-otp', { 
         method:"POST",
         headers:{
             "content-type":"application/json",
@@ -69,7 +69,7 @@ const ForgotPassword = () => {
   const resetPasswordHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/auth/reset-password', { 
+      const res = await fetch('https://wonder-property-backend.onrender.com/auth/reset-password', { 
         method:"POST",
         headers:{
             "content-type":"application/json",

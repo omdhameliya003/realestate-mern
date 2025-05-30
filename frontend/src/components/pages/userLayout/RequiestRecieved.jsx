@@ -16,7 +16,7 @@ function RequiestRecieved() {
             const token= JSON.parse(localStorage.getItem("token")||"");
             const user_id= JSON.parse(localStorage.getItem("user_id")||"");
             
-            const res= await fetch(`http://localhost:5000/requiest/received/${user_id}`,{
+            const res= await fetch(`https://wonder-property-backend.onrender.com/requiest/received/${user_id}`,{
                 method:"GET",
                 headers:{
                  "Authorization":`Bearer ${token}`,
@@ -32,7 +32,7 @@ function RequiestRecieved() {
 
    const OnDeleteRequiest= async(requiest_id)=>{
     const token= JSON.parse(localStorage.getItem("token")||"");
-     const res= await fetch(`http://localhost:5000/requiest/${requiest_id}`,{
+     const res= await fetch(`https://wonder-property-backend.onrender.com/requiest/${requiest_id}`,{
         method:"delete",
         headers:{
           "Authorization":`Bearer ${token}`

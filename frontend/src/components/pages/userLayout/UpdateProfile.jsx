@@ -30,7 +30,7 @@ function UpdateProfile() {
     useEffect(()=>{
         const getprofile= async()=>{
             const token=JSON.parse(localStorage.getItem("token")) || "";
-             const res = await fetch("http://localhost:5000/auth/me", {
+             const res = await fetch("https://wonder-property-backend.onrender.com/auth/me", {
                method: "GET",
                headers: {
                  "content-Type": "application/json",
@@ -69,7 +69,7 @@ function UpdateProfile() {
       try{
           const token=JSON.parse(localStorage.getItem("token")||"");
           const user_id=JSON.parse(localStorage.getItem("user_id")||"");
-          const res= await fetch(`http://localhost:5000/auth/update-profile/${user_id}`,{
+          const res= await fetch(`https://wonder-property-backend.onrender.com/auth/update-profile/${user_id}`,{
               method:"PUT",
               headers:{
                  "content-Type":"application/json",

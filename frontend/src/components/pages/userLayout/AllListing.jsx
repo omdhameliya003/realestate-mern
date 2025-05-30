@@ -30,7 +30,7 @@ function AllListing() {
   const onRequiest= async(property_id,owner_id)=>{
     const token= JSON.parse(localStorage.getItem("token"));
     const user_id= JSON.parse(localStorage.getItem("user_id"));
-    const res= await fetch(`http://localhost:5000/requiest`,{
+    const res= await fetch(`https://wonder-property-backend.onrender.com/requiest`,{
       method:"POST",
       headers:{
         "content-Type":"application/json",

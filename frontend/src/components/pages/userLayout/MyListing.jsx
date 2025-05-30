@@ -14,7 +14,7 @@ function MyListing() {
     async function myproperties() {
       const token = JSON.parse(localStorage.getItem("token") || "");
       const user_id = JSON.parse(localStorage.getItem("user_id") || "");
-      const res = await fetch(`http://localhost:5000/property/user/${user_id}`, {
+      const res = await fetch(`https://wonder-property-backend.onrender.com/property/user/${user_id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ function MyListing() {
   if(result.isConfirmed){
     try {
       const token = JSON.parse(localStorage.getItem("token") || "");
-      const res= await fetch(`http://localhost:5000/property/${property_id}`,{
+      const res= await fetch(`https://wonder-property-backend.onrender.com/property/${property_id}`,{
         method:"DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

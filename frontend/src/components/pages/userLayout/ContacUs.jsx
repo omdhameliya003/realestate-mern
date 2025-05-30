@@ -33,7 +33,7 @@ function ContacUs() {
  e.preventDefault();
   try {
     const token= JSON.parse(localStorage.getItem("token")||"");
-    const res= await fetch(`http://localhost:5000/message`,{
+    const res= await fetch(`https://wonder-property-backend.onrender.com/message`,{
       method:"POST",
       headers:{
         "content-type":"application/json",

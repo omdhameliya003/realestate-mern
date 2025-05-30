@@ -17,7 +17,7 @@ function ManageProperty() {
     async function getProperties() {
       try {
         const token = JSON.parse(localStorage.getItem("token"));
-        const res = await fetch("http://localhost:5000/property", {
+        const res = await fetch("https://wonder-property-backend.onrender.com/property", {
           method: "GET",
           headers: {
             authorization: `Bearer ${token}`,
@@ -80,7 +80,7 @@ function ManageProperty() {
         if(result.isConfirmed){
           try {
               const token= JSON.parse(localStorage.getItem('token'))
-               const res= await fetch(`http://localhost:5000/property/${property_id}`,{
+               const res= await fetch(`https://wonder-property-backend.onrender.com/property/${property_id}`,{
                   method:"DELETE",
                   headers:{
                       authorization:`Bearer ${token}`

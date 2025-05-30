@@ -35,7 +35,7 @@ function ViewProperty() {
     const getproperty = async () => {
       const token = JSON.parse(localStorage.getItem("token") || "");
       const res = await fetch(
-        `http://localhost:5000/property/${state.property_id}`,
+        `https://wonder-property-backend.onrender.com/property/${state.property_id}`,
         {
           method: "GET",
           headers: {
@@ -85,7 +85,7 @@ function ViewProperty() {
     const token= JSON.parse(localStorage.getItem("token")||"");
     const user_id= JSON.parse(localStorage.getItem("user_id")||"");
     console.log("user_id:-",user_id);
-    const res= await fetch(`http://localhost:5000/requiest`,{
+    const res= await fetch(`https://wonder-property-backend.onrender.com/requiest`,{
       method:"POST",
       headers:{
         "content-Type":"application/json",

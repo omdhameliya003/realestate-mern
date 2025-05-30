@@ -16,7 +16,7 @@ export const SaveProvider= ({children})=>{
        const user_id = JSON.parse(localStorage.getItem("user_id"));
 
       const fetchSaved = async () => {
-        const res = await fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
+        const res = await fetch(`https://wonder-property-backend.onrender.com/saveProperty/user/${user_id}`,{
           method:"GET",
         headers:{
           Authorization:`Bearer ${token}`,
@@ -41,7 +41,7 @@ export const SaveProvider= ({children})=>{
         const endpoint= isSaved ?"/unsaveProperty":"/saveProperty";
 
         const res = await fetch(
-          `http://localhost:5000${endpoint}`,
+          `https://wonder-property-backend.onrender.com${endpoint}`,
           {
             method: "POST",
             headers: {

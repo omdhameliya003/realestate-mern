@@ -16,7 +16,7 @@ function Login() {
 
   const getprofile = async () => {
     const token = JSON.parse(localStorage.getItem("token"));
-    const res = await fetch("http://localhost:5000/auth/me", {
+    const res = await fetch("https://wonder-property-backend.onrender.com/auth/me", {
       method: "GET",
       headers: {
         "content-Type": "application/json",
@@ -34,7 +34,7 @@ function Login() {
     e.preventDefault();
     try {
       const data = { email, password };
-      const res = await fetch("http://localhost:5000/auth/login", {
+      const res = await fetch("https://wonder-property-backend.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "content-Type": "application/json",

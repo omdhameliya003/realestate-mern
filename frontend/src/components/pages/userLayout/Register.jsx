@@ -123,7 +123,7 @@ function Ragister() {
       };
 
       try {
-        const res= await fetch("http://localhost:5000/auth/register",{
+        const res= await fetch("https://wonder-property-backend.onrender.com/auth/register",{
           method:"POST",
           headers:{
             "content-Type":"application/json"

@@ -17,7 +17,7 @@ function SaveProperty() {
       async function getsaveProperty(){
         const token= JSON.parse(localStorage.getItem('token'));
         const user_id=JSON.parse(localStorage.getItem('user_id'));
-          const res = await fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
+          const res = await fetch(`https://wonder-property-backend.onrender.com/saveProperty/user/${user_id}`,{
             method:"GET",
             headers:{
                 Authorization:`Bearer ${token}`
@@ -38,7 +38,7 @@ function SaveProperty() {
     const token= JSON.parse(localStorage.getItem("token")||"");
     const user_id= JSON.parse(localStorage.getItem("user_id")||"");
     console.log("user_id:-",user_id);
-    const res= await fetch(`http://localhost:5000/requiest`,{
+    const res= await fetch(`https://wonder-property-backend.onrender.com/requiest`,{
       method:"POST",
       headers:{
         "content-Type":"application/json",

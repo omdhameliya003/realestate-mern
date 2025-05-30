@@ -79,7 +79,7 @@ function PostProperty() {
     const getproperty = async () => {
       const token = JSON.parse(localStorage.getItem("token") || "");
       const res = await fetch(
-        `http://localhost:5000/property/${state?.property_id}`,
+        `https://wonder-property-backend.onrender.com/property/${state?.property_id}`,
         {
           method: "GET",
           headers: {
@@ -166,8 +166,8 @@ for (const key in formData) {
     try {
       const token = JSON.parse(localStorage.getItem("token") || "");
        const url = state?.property_id
-      ? `http://localhost:5000/property/${state.property_id}`
-      : "http://localhost:5000/property";
+      ? `https://wonder-property-backend.onrender.com/property/${state.property_id}`
+      : "https://wonder-property-backend.onrender.com/property";
     const method = state?.property_id ? "PUT" : "POST";
 
       const res = await fetch(url, {

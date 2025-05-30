@@ -19,7 +19,7 @@ function MessageReply() {
         async function getmessage(){
             try {
                  const token= JSON.parse(localStorage.getItem("token"))
-            const res= await fetch(`http://localhost:5000/message/${state.message_id}`,{
+            const res= await fetch(`https://wonder-property-backend.onrender.com/message/${state.message_id}`,{
                 method:"GET",
                 headers:{
                      authorization:`Bearer ${token}`
@@ -56,7 +56,7 @@ function MessageReply() {
          try {
             const token= JSON.parse(localStorage.getItem("token"));
 
-            const res= await fetch("http://localhost:5000/send-message-reply-mail",{
+            const res= await fetch("https://wonder-property-backend.onrender.com/send-message-reply-mail",{
                 method:"POST",
                 headers:{
                     "content-type":"application/json",

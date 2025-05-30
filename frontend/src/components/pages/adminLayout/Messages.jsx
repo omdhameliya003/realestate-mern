@@ -13,7 +13,7 @@ function Messages() {
     async function getMessages() {
       const token = JSON.parse(localStorage.getItem("token"));
       try {
-        const res = await fetch("http://localhost:5000/message", {
+        const res = await fetch("https://wonder-property-backend.onrender.com/message", {
           method: "GET",
           headers: {
             authorization: `Bearer ${token}`,
@@ -71,7 +71,7 @@ function Messages() {
         if(result.isConfirmed){
           try {
               const token= JSON.parse(localStorage.getItem('token'))
-               const res= await fetch(`http://localhost:5000/message/${Message_id}`,{
+               const res= await fetch(`https://wonder-property-backend.onrender.com/message/${Message_id}`,{
                   method:"DELETE",
                   headers:{
                       authorization:`Bearer ${token}`

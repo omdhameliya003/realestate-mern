@@ -15,7 +15,7 @@ function ManageUser() {
     async function getUsers(){
           const token = JSON.parse(localStorage.getItem("token"));
         try {
-             const res= await fetch("http://localhost:5000/auth/alluser", {
+             const res= await fetch("https://wonder-property-backend.onrender.com/auth/alluser", {
             method: "GET",
             headers: {
                 authorization: `Bearer ${token}`,
@@ -77,7 +77,7 @@ function ManageUser() {
       if(result.isConfirmed){
         try {
           const token= JSON.parse(localStorage.getItem('token'))
-          const res= await fetch(`http://localhost:5000/auth/changerole/${userid}`,{
+          const res= await fetch(`https://wonder-property-backend.onrender.com/auth/changerole/${userid}`,{
             method:"PUT",
             headers:{
                  'content-type':'application/json',
@@ -111,7 +111,7 @@ function ManageUser() {
         try {
           console.log(userid)
             const token= JSON.parse(localStorage.getItem('token'))
-             const res= await fetch(`http://localhost:5000/auth/delete-user/${userid}`,{
+             const res= await fetch(`https://wonder-property-backend.onrender.com/auth/delete-user/${userid}`,{
                 method:"DELETE",
                 headers:{
                     authorization:`Bearer ${token}`

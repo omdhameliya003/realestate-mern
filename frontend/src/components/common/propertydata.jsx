@@ -3,7 +3,7 @@
 export async function getProperties(setProperties){
     try {
         const token=JSON.parse(localStorage.getItem("token")||"");
-        const res= await fetch("http://localhost:5000/property",{
+        const res= await fetch("https://wonder-property-backend.onrender.com/property",{
             method:"GET",
             headers:{
                 "Content-Type":"application/json",

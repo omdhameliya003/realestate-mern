@@ -38,33 +38,33 @@ function AdminDashBoard() {
           saleandrent,
           weeklyData,
         ] = await Promise.all([
-          fetch("http://localhost:5000/auth/alluser", {
+          fetch("https://wonder-property-backend.onrender.com/auth/alluser", {
             method: "GET",
             headers: {
               authorization: `Bearer ${token}`,
             },
           }),
-          fetch("http://localhost:5000/totalPropertyCount", {
-            method: "GET",
-            headers: {
-              authorization: `Bearer ${token}`,
-            },
-          }),
-
-          fetch("http://localhost:5000/property", {
+          fetch("https://wonder-property-backend.onrender.com/totalPropertyCount", {
             method: "GET",
             headers: {
               authorization: `Bearer ${token}`,
             },
           }),
 
-          fetch("http://localhost:5000/offer-summary", {
+          fetch("https://wonder-property-backend.onrender.com/property", {
             method: "GET",
             headers: {
               authorization: `Bearer ${token}`,
             },
           }),
-          fetch("http://localhost:5000/weeklyListing-summary", {
+
+          fetch("https://wonder-property-backend.onrender.com/offer-summary", {
+            method: "GET",
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          }),
+          fetch("https://wonder-property-backend.onrender.com/weeklyListing-summary", {
             method: "GET",
             headers: {
               authorization: `Bearer ${token}`,

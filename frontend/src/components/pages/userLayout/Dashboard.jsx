@@ -27,7 +27,7 @@ useEffect(()=>{
 
       const [userInfo, myProperty,PropertySaved, requiestSent, requiestRecieved] = await Promise.all(
         [
-           fetch("http://localhost:5000/auth/me", {
+           fetch("https://wonder-property-backend.onrender.com/auth/me", {
             method: "GET",
             headers: {
               "content-Type": "application/json",
@@ -35,28 +35,28 @@ useEffect(()=>{
             },
           }),
 
-          fetch(`http://localhost:5000/property/user/${user_id}`, {
+          fetch(`https://wonder-property-backend.onrender.com/property/user/${user_id}`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }),
 
-          fetch(`http://localhost:5000/saveProperty/user/${user_id}`,{
+          fetch(`https://wonder-property-backend.onrender.com/saveProperty/user/${user_id}`,{
             method:"GET",
             headers:{
                 "Authorization":`Bearer ${token}`
             }
           }),
 
-          fetch(`http://localhost:5000/requiest/sent/${user_id}`,{
+          fetch(`https://wonder-property-backend.onrender.com/requiest/sent/${user_id}`,{
             method:"GET",
             headers:{
                 "Authorization":`Bearer ${token}`
             }
           }),
 
-          fetch(`http://localhost:5000/requiest/received/${user_id}`,{
+          fetch(`https://wonder-property-backend.onrender.com/requiest/received/${user_id}`,{
             method:"GET",
             headers:{
                 "Authorization":`Bearer ${token}`

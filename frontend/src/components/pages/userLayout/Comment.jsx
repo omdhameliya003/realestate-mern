@@ -19,7 +19,7 @@ function Comment() {
   useEffect(() => {
     async function getComments() {
       const token = JSON.parse(localStorage.getItem("token") || "");
-      const res = await fetch(`http://localhost:5000/comment/${property_id}`, {
+      const res = await fetch(`https://wonder-property-backend.onrender.com/comment/${property_id}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ function Comment() {
     e.preventDefault();
 
     const token = JSON.parse(localStorage.getItem("token"));
-    const res = await fetch("http://localhost:5000/comment", {
+    const res = await fetch("https://wonder-property-backend.onrender.com/comment", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
